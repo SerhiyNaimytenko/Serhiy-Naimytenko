@@ -8,7 +8,7 @@ class C_Library
 {
 private:    
     int average_number_of_uses;
-    int year_creating;
+    int year_creating; 
     int number_of_functions;
 public:
     void setAverage_number_of_uses(int average_number_of_uses)
@@ -181,7 +181,7 @@ int main()
 
     list_lib.Output();
 
-    printf("Введите индекс елемента данные которого вы хотите получить\n");
+    printf("Введите индекс елемента данные которого вы хотите получить \n");
     scanf("%i", &a);
 
     list_lib.Index_output(a-1);
