@@ -171,7 +171,7 @@ int main()
 
     list_lib.Output();
 
-    printf("Добавления нового елемента\n");
+    printf("Добавления нового елемента\n"); 
     list_lib.list = list_lib.Add();
      
     list_lib.Output();
