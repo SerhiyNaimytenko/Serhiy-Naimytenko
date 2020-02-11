@@ -1,4 +1,5 @@
-#include "Header_1.h"
+#include "C_Library.h"
+#include "C_List.h"
 
 void C_List::setSize_array(int size)
 {
@@ -52,7 +53,7 @@ C_Library* C_List::Add()  // 3
 
     int order = 0;
 
-    printf("Введите порядковый нормер который вы хотите присвоить новому елементу\n");
+    printf("Введите порядковый номер который вы хотите присвоить новому елементу\n");
 
     scanf("%i", &order);
 
@@ -100,7 +101,7 @@ void C_List::Index_output(int index)const // 5
 {
     int a;
     a = list[index].getAverage_number_of_uses();
-    printf("%-2i%-23i \t\t",index+1, a);
+    printf("%-2i%-23i \t\t", index + 1, a);
     a = list[index].getYear_Creating();
     printf("%-4i \t\t", a);
     a = list[index].getNumber_of_function();
