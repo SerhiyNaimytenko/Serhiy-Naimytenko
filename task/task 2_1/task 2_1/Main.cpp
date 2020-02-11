@@ -10,13 +10,13 @@ int main()
     scanf("%i", &a);
     list_lib.setSize_array(a);
 
-    list_lib.list  = list_lib.Create();
+    list_lib.list = list_lib.Create();
 
     list_lib.Output();
 
     printf("Добавления нового елемента\n");
     list_lib.list = list_lib.Add();
-     
+
     list_lib.Output();
 
     printf("Удаления елемента\n");
@@ -27,7 +27,7 @@ int main()
     printf("Введите индекс елемента данные которого вы хотите получить \n");
     scanf("%i", &a);
 
-    list_lib.Index_output(a-1);
+    list_lib.Index_output(a - 1);
 
     delete[]  list_lib.list;
 
