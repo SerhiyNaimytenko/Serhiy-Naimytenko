@@ -8,9 +8,9 @@ int main()
     C_List list_lib;
 
     printf("Cоздание масива\nВведите размерность масва\n");
-    int a;
-    scanf("%i", &a);
-    list_lib.setSize_array(a);
+    int size;
+    scanf("%i", &size);
+    list_lib.setSize_array(size);
 
     list_lib.list = list_lib.Create();
 
@@ -30,9 +30,7 @@ int main()
 
     list_lib.Output();
 
-    printf("Удаления елемента\n");
-
-    int order; 
+    printf("Удаления елемента\n"); 
 
     printf("Введите номер елемента которого вы хотите удалить\n");
 
@@ -45,9 +43,9 @@ int main()
     list_lib.Output();
 
     printf("Введите индекс елемента данные которого вы хотите получить \n");
-    scanf("%i", &a);
+    scanf("%i", &order);
 
-    C_Library index_lib = list_lib.Index_return(a - 1);
+    C_Library index_lib = list_lib.Index_return(order - 1);
     
     printf("Вывод полученого элемента на екран\n");
 
