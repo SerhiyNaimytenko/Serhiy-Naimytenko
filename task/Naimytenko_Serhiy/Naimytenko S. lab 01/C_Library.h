@@ -7,8 +7,6 @@
 #include <iostream>
 #include <clocale>
 
-
-
 class C_Library
 {
 private:
