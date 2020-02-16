@@ -11,21 +11,15 @@ bool Test_Add()
 	list.list = new C_Library[1];
 
 	C_Library new_lib;
-	
-	list.Add(new_lib,2);
+
+	list.Add(new_lib, 2);
 
 	int size = list.getSize_array();
 
 	if (size == 2)
-	{
-		delete[] list.list;
 		return true;
-	}
 	else
-	{
-		delete[] list.list;
-		return true;
-	}
+		return false;
 
 }
 
@@ -44,7 +38,7 @@ bool Test_Delete()
 
 	if (size == 1)
 		return true;
-	else 
+	else
 		return false;
 
 }
@@ -64,12 +58,12 @@ bool Test_Index_return()
 	list.list[1].setAverage_number_of_uses(4);
 	list.list[1].setNumber_of_function(5);
 	list.list[1].setYear_Creating(6);
-	
-	C_Library return_lib  = list.Index_return(2-1);
 
-	int count = 0 ,value;
+	C_Library return_lib = list.Index_return(2 - 1);
+
+	int count = 0, value;
 	value = return_lib.getAverage_number_of_uses();
-	if ( value == 4)
+	if (value == 4)
 		count++;
 	value = return_lib.getNumber_of_function();
 	if (value == 5)
@@ -80,7 +74,7 @@ bool Test_Index_return()
 
 	if (count == 3)
 		return true;
-	else 
+	else
 		return false;
 
 
