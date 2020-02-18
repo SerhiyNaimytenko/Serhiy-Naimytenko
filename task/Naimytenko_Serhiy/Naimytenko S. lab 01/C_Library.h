@@ -10,14 +10,14 @@
 class C_Library
 {
 private:
-    int average_number_of_uses;
+    int ID;
     int year_creating;
     int number_of_functions;
 public:
-    void setAverage_number_of_uses(const int);
+    void setID(const int);
     void setYear_Creating(const int);
     void setNumber_of_function(const int);
-    int getAverage_number_of_uses()const;
+    int getID()const;
     int getYear_Creating()const;
     int getNumber_of_function()const;
 

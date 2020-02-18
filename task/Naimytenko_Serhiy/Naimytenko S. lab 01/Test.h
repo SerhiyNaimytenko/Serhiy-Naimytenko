@@ -1,5 +1,5 @@
 #pragma once
 
-bool Test_Add();
-bool Test_Delete();
-bool Test_Index_return();
+bool Test_Add(C_List&);
+bool Test_Delete(C_List&);
+bool Test_Index_return(C_List&);

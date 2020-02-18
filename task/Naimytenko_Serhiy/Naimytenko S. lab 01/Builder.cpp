@@ -7,9 +7,9 @@ C_Library New_Library() // 2
     C_Library new_lib;
     printf("Введите данные о новой библиотеке\n");
 
-    printf("среднее количество использований библиотеки\n");
+    printf("ID библиотеки\n");
     scanf("%i", &a);
-    new_lib.setAverage_number_of_uses(a);
+    new_lib.setID(a);
 
     printf("Год создания библиотеки\n");
     scanf("%i", &a);

@@ -2,80 +2,84 @@
 #include "C_List.h"
 #include "Test.h"
 
-bool Test_Add()
+bool Test_Add(C_List& list)
 {
-	C_List list;
-
-	list.setSize_array(1);
-
-	list.list = new C_Library[1];
-
 	C_Library new_lib;
 
-	list.Add(new_lib, 2);
+	list.Add(new_lib, 4);
 
 	int size = list.getSize_array();
 
-	if (size == 2)
+	if (size == 4)
+		return true;
+	else
+		return false;
+}
+
+bool Test_Delete(C_List& list)
+{
+
+	list.Delete(1);
+
+	int size = list.getSize_array();
+
+	if (size == 3)
 		return true;
 	else
 		return false;
 
 }
 
-bool Test_Delete()
+bool Test_Index_return(C_List& list)
 {
-	C_List list;
 
-	list.setSize_array(2);
 
-	list.list = new C_Library[2];
+	static const char diff[] = "yes";
+	C_Library new_el(diff, 20, 2001, 29);
 
-	C_Library new_lib;
-	list.Delete(2);
+	list.list[0] = new_el;
 
-	int size = list.getSize_array();
-
-	if (size == 1)
-		return true;
-	else
-		return false;
-
-}
-
-bool Test_Index_return()
-{
-	C_List list;
-
-	list.setSize_array(2);
-
-	list.list = new C_Library[2];
-
-	list.list[0].setAverage_number_of_uses(1);
-	list.list[0].setNumber_of_function(2);
-	list.list[0].setYear_Creating(3);
-
-	list.list[1].setAverage_number_of_uses(4);
-	list.list[1].setNumber_of_function(5);
-	list.list[1].setYear_Creating(6);
-
-	C_Library return_lib = list.Index_return(2 - 1);
+	C_Library return_lib;
+	return_lib = list.Index_return(0);
 
 	int count = 0, value;
-	value = return_lib.getAverage_number_of_uses();
-	if (value == 4)
+
+	const char* y = return_lib.getDynamically();
+	if (strcmp("yes", y))
 		count++;
-	value = return_lib.getNumber_of_function();
-	if (value == 5)
+	value = return_lib.getAverage_number_of_uses();
+	if (value == 20)
 		count++;
 	value = return_lib.getYear_Creating();
-	if (value == 6)
+	if (value == 2001)
+		count++;
+	value = return_lib.getNumber_of_function();
+	if (value == 29)
 		count++;
 
-	if (count == 3)
+	if (count == 4)
 		return true;
 	else
 		return false;
 
+}
 
+bool Test_Difference(C_List& list)
+{
+
+	static char dynamically[] = "no";
+	C_Library new_lib1(dynamically, 20, 1998, 40);
+
+	list.list[1] = new_lib1;
+
+	C_Library new_lib2(new_lib1);
+
+	list.list[2] = new_lib2;
+
+	float diff = list.Difference();
+
+	if (diff == 1.5)
+		return true;
+	else
+		return false;
 }

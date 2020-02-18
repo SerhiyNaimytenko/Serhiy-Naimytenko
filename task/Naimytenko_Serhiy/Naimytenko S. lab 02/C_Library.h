@@ -26,13 +26,13 @@ public:
     int getNumber_of_function()const;
     C_Library()
     {
-        static char dynamic[] = "yes";
+        static const char dynamic[] = "yes";
         dynamically = dynamic;
         average_number_of_uses = 10;
         year_creating = 1999;
         number_of_functions = 50;
     }
-    C_Library(char* dynamically, int average_number_of_uses,int year_creating,int number_of_functions)
+    C_Library(const char* dynamically,const int average_number_of_uses,const int year_creating,const int number_of_functions)
     {
 
         this->dynamically = dynamically;

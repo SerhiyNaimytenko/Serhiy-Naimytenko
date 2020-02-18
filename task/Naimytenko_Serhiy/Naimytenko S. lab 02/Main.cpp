@@ -7,8 +7,8 @@ int main()
     C_List list_lib;
 
     printf("Cоздание масива\n¬ведите размерность масва\n");
-    float size;
-    scanf("%f", &size);
+    int size;
+    scanf("%i", &size);
     list_lib.setSize_array(size);
     list_lib.list = new C_Library[size];
 
@@ -48,7 +48,7 @@ int main()
 
     list_lib.Index_output(index_lib,1);
 
-    list_lib.Difference();
+    float diff = list_lib.Difference();
 
     delete[]  list_lib.list;
 

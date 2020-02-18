@@ -14,7 +14,6 @@ int C_List::getSize_array()const
 
 void C_List::Create() // 1
 {
-    
     printf("ѕроисходит заполнеие масива данными\n");
     for (int i = 0; i < size; i++)
         list[i] = New_Lib(i+1);
@@ -58,6 +57,7 @@ void C_List::Delete(const int order) // 4
     for (int i = 0; i < size; i++)
         list[i] = new_list[i];
     delete[] new_list;
+
 }
 
 C_Library C_List::Index_return(const int index)
@@ -89,9 +89,9 @@ void C_List::Output()const // 6
         Index_output(list[i],i+1);
 }
 
-void C_List::Difference()
+float C_List::Difference()
 {
-    float count = 0;
+    int count = 0;
     const char* y;
     for (int i = 0; i < size; i++)
     {
@@ -99,6 +99,7 @@ void C_List::Difference()
         if (strcmp("yes", y))
             count++;
     }
-    float dif = size/count;
+    float dif = (float) size/(float) count;
     printf("¬ %3.3f раз количество библиотек, которые динамически подключаютс€, меньше чем общее количество библиотек\n",dif);
+    return dif;
 }

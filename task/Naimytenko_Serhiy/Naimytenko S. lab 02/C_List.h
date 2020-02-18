@@ -4,7 +4,7 @@
 class C_List
 {
 private:
-   float size;
+    int size;
 public:
 
     C_Library* list;
@@ -16,5 +16,5 @@ public:
     void Index_output(const C_Library,int)const;
     C_Library Index_return(const int index);
     void Output()const;
-    void Difference();
+    float Difference();
 };

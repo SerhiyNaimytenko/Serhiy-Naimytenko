@@ -11,26 +11,24 @@ int main()
     int size;
     scanf("%i", &size);
     list_lib.setSize_array(size);
+    list_lib.list = new C_Library[size];
 
-    list_lib.list = list_lib.Create();
+    list_lib.Create();
 
     list_lib.Output();
-
-    C_Library new_lib = New_Library();
-
 
     int order = 0;
 
     printf("Введите порядковый номер который вы хотите присвоить новому елементу\n");
 
     scanf("%i", &order);
-
+    C_Library new_lib = New_Library();
     printf("Добавления нового елемента\n");
-    list_lib.list = list_lib.Add(new_lib,order);
+    list_lib.Add(new_lib, order);
 
     list_lib.Output();
 
-    printf("Удаления елемента\n"); 
+    printf("Удаления елемента\n");
 
     printf("Введите номер елемента которого вы хотите удалить\n");
 
@@ -38,18 +36,18 @@ int main()
 
     printf("Элемент который вы удалили\n");
 
-    list_lib.list = list_lib.Delete(order);
+    list_lib.Delete(order);
 
     list_lib.Output();
 
     printf("Введите индекс елемента данные которого вы хотите получить \n");
     scanf("%i", &order);
 
-    C_Library index_lib = list_lib.Index_return(order - 1);
-    
+    C_Library index_lib = list_lib.Index_return(order);
+
     printf("Вывод полученого элемента на екран\n");
 
-    list_lib.Index_output(index_lib);
+    list_lib.Index_output(index_lib,1);
 
     delete[]  list_lib.list;
 
