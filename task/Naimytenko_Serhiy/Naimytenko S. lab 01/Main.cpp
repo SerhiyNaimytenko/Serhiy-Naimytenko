@@ -12,8 +12,15 @@ int main()
     scanf("%i", &size);
     list_lib.setSize_array(size);
     list_lib.list = new C_Library[size];
-
-    list_lib.Create();
+    bool res;
+    for (int i = 0; i < 2; i)
+    {
+        list_lib.Create();
+        res = list_lib.Check();
+        if (res)
+            i = 2;
+    }
+   
 
     list_lib.Output();
 

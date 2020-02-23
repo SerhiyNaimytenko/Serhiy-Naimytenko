@@ -9,6 +9,7 @@ C_Library New_Library() // 2
 
     printf("ID библиотеки\n");
     scanf("%i", &a);
+
     new_lib.setID(a);
 
     printf("Год создания библиотеки\n");

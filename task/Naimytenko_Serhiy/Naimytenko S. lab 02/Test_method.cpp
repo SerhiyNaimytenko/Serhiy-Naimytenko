@@ -39,15 +39,14 @@ bool Test_Index_return(C_List& list)
 
 	list.list[0] = new_el;
 
-	C_Library return_lib;
-	return_lib = list.Index_return(0);
+	C_Library return_lib = list.Index_return(20);
 
-	int count = 0, value;
+	int count = 1, value = 0;
 
 	const char* y = return_lib.getDynamically();
 	if (strcmp("yes", y))
 		count++;
-	value = return_lib.getAverage_number_of_uses();
+	value = return_lib.getID();
 	if (value == 20)
 		count++;
 	value = return_lib.getYear_Creating();
@@ -56,7 +55,6 @@ bool Test_Index_return(C_List& list)
 	value = return_lib.getNumber_of_function();
 	if (value == 29)
 		count++;
-
 	if (count == 4)
 		return true;
 	else

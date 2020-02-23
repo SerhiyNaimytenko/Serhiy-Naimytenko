@@ -12,38 +12,38 @@ class C_Library
 {
 private:
     const char* dynamically;
-    int average_number_of_uses;
+    int ID;
     int year_creating;
     int number_of_functions;
 public:
     void setDynamically(const char*);
-    void setAverage_number_of_uses(const int);
+    void setID(const int);
     void setYear_Creating(const int);
     void setNumber_of_function(const int);
     const char* getDynamically()const;
-    int getAverage_number_of_uses()const;
+    int getID()const;
     int getYear_Creating()const;
     int getNumber_of_function()const;
     C_Library()
     {
         static const char dynamic[] = "yes";
         dynamically = dynamic;
-        average_number_of_uses = 10;
+        ID = 10;
         year_creating = 1999;
         number_of_functions = 50;
     }
-    C_Library(const char* dynamically,const int average_number_of_uses,const int year_creating,const int number_of_functions)
+    C_Library(const char* dynamically,const int ID,const int year_creating,const int number_of_functions)
     {
 
         this->dynamically = dynamically;
-        this->average_number_of_uses = average_number_of_uses;
+        this->ID = ID;
         this->year_creating = year_creating;
         this->number_of_functions = number_of_functions;
     }
     C_Library(const C_Library& lib)
     {
         this->dynamically = lib.dynamically;
-        this->average_number_of_uses = lib.average_number_of_uses;
+        this->ID = lib.ID;
         this->year_creating = lib.year_creating;
         this->number_of_functions = lib.number_of_functions;
     }

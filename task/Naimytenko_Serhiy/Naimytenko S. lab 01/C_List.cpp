@@ -95,3 +95,25 @@ void C_List::Output()const // 6
     for (int i = 0; i < size; i++)
         Index_output(list[i], i + 1);
 }
+
+bool C_List::Check()const
+{
+    int check1,check2;
+    for (int i = 0; i < size; i++)
+    {
+        check1 = list[i].getID();
+        for (int j = i+1; j < size; j++)
+        {
+            check2 = list[j].getID();
+            if (check1 == check2)
+            {
+                printf("Обнаружено сходство ID прошу изменить данные в этом элемене\n");
+                list[i] = New_Library();
+                i = size;
+            }
+
+        }
+
+    }
+    return true;
+}

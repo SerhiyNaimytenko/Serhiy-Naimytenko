@@ -62,19 +62,30 @@ void C_List::Delete(const int order) // 4
 
 C_Library C_List::Index_return(const int index)
 {
-    return list[index];
+    int a;
+    for (int i = 0; i < size; i++)
+    {
+        a = list[i].getID();
+        if (a == index)
+        {
+            a = i;
+            i = size;
+        }
+    }
+    return list[a];
 }
+
 
 void C_List::Index_output(const C_Library lib,int i)const  // 5
 {
     int a;
     printf("%-5i", i);
-    a = lib.getAverage_number_of_uses();
-    printf("%-23i \t\t", a);
+    a = lib.getID();
+    printf("%-23i ", a);
     a = lib.getYear_Creating();
     printf("%-4i \t\t", a);
     a = lib.getNumber_of_function();
-    printf("%i\t\t", a);
+    printf("%i\t\t\t", a);
     const char* b;
     b = lib.getDynamically();
     printf("%s", b );
@@ -84,7 +95,7 @@ void C_List::Index_output(const C_Library lib,int i)const  // 5
 void C_List::Output()const // 6
 {
     printf("Вивод на экран всех библиотек\n");
-    printf("     Среднее количество использований\tГод создания\tКоличество функций в библиотеке\tДинамически подключается?\n");
+    printf("     ID библиотеки\tГод создания\tКоличество функций в библиотеке\tДинамически подключается?\n");
     for (int i = 0; i < size; i++)
         Index_output(list[i],i+1);
 }

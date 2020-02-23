@@ -5,9 +5,9 @@ void C_Library::setDynamically(const char* dynamically)
     this->dynamically = dynamically;
 }
 
-void C_Library::setAverage_number_of_uses(const int average_number_of_uses)
+void C_Library::setID(const int ID)
 {
-    this->average_number_of_uses = average_number_of_uses;
+    this->ID = ID;
 }
 
 void  C_Library::setYear_Creating(const int year_creating)
@@ -25,9 +25,9 @@ const char* C_Library::getDynamically()const
     return dynamically;
 }
 
-int  C_Library::getAverage_number_of_uses()const
+int  C_Library::getID()const
 {
-    return this->average_number_of_uses;
+    return this->ID;
 }
 
 int  C_Library::getYear_Creating()const

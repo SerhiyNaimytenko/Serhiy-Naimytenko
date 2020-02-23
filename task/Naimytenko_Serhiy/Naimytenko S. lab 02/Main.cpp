@@ -42,7 +42,7 @@ int main()
     printf("Введите индекс елемента данные которого вы хотите получить \n");
     scanf("%i", &order);
 
-    C_Library index_lib = list_lib.Index_return(order - 1);
+    C_Library index_lib = list_lib.Index_return(order);
 
     printf("Вывод полученого элемента на екран\n");
 
