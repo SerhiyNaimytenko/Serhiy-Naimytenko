@@ -6,13 +6,35 @@ int main()
     setlocale(LC_ALL, "Rus");
     C_List list_lib;
 
-    cout << "Cоздание масива"<<endl<<"Введите размерность масва" << endl;
-    int size;
-    cin >> size;
-    list_lib.setSize_array(size);
-    list_lib.list = new C_Library[size];
+    cout << "Cоздание масива"<<endl;
+    int command;
+    cout << "Введите вариант заполнения масива 1- из файла 2-конструктором"<<endl;
+    cin >> command;
 
-    list_lib.Create();
+    string file_read = "file_read.txt";
+    string file_write = "file_write.txt";
+    int res;
+
+    if (command == 1)
+    {
+        list_lib.setSize_array(5);
+        list_lib.list = new C_Library[5];
+       res = list_lib.Read_file(file_read);
+       if (res == 1)
+        return 1;
+    }
+
+    else
+    {
+        int size;
+        cout << "Введите размер масива" << endl;
+        cin >> size;
+        list_lib.setSize_array(size);
+        list_lib.list = new C_Library[size];
+        list_lib.Create();
+    }
+
+   
 
     list_lib.Output();
 
@@ -34,7 +56,7 @@ int main()
     cin >> order;
 
     cout << "Элемент который вы удалили" << endl;
-    list_lib.Delete(order);
+        list_lib.Delete(order);
 
     list_lib.Output();
 
@@ -45,11 +67,16 @@ int main()
     C_Library index_lib = list_lib.Index_return(order);
 
     cout << "Вывод полученого элемента на екран" << endl;
-    list_lib.Index_output(index_lib, 1);
+    stringstream str = list_lib.Str_return(index_lib);
+    list_lib.Str_output(str,0);
 
     float diff = list_lib.Difference();
 
-    delete[]  list_lib.list;
+    res = list_lib.Write_file(file_write);
+    if (res == 1)
+        return 1;
+
+    delete[] list_lib.list;
 
     if (_CrtDumpMemoryLeaks()) 
         cout <<endl<< "Есть утечка памяти" << endl;

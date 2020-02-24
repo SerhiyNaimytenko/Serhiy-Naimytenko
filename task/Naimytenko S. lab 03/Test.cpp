@@ -18,28 +18,26 @@ int main()
 	if (result)
 		cout << "Test_Add пройден успешно!" << endl;
 	else
-		printf("Test_Add не пройден!\n");
 		cout << "Test_Add не пройден!"<<endl;
 	result = Test_Delete(list);
 
 	if (result)
-
-		printf("Test_Delete пройден успешно!\n");
+		cout << "Test_Delete пройден успешно!" << endl;
 	else
-		printf("Test_Delete не пройден!\n");
+		cout << "Test_Delete не пройден!" << endl; 
 
 	result = Test_Index_return(list);
 
 	if (result)
-		printf("Test_Index_return пройден успешно!\n");
+		cout << "Test_Index_return пройден успешно!" << endl; 
 	else
-		printf("Test_Index_return не пройден!\n");
+		cout << "Test_Index_return не пройден!" << endl; 
 
 	result = Test_Difference(list);
 	if (result)
-		printf("Test_Difference пройден успешно!\n");
+		cout << "Test_Difference пройден успешно!" << endl; 
 	else
-		printf("Test_Difference не пройден!\n");
+		cout << "Test_Difference не пройден!" << endl; 
 
 
 

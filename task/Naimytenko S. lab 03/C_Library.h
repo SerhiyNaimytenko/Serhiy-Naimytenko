@@ -7,12 +7,19 @@
 #include <ctime>
 #include <cstring>
 #include <iomanip>
+#include <fstream>
+#include <sstream>
 
 using std::cin;
 using std::cout;
 using std::string;
 using std::endl;
 using std::setw;
+using std::setprecision;
+using std::ifstream;
+using std::ofstream;
+using std::getline;
+using std::stringstream;
 
 
 class C_Library
@@ -33,13 +40,13 @@ public:
     int getNumber_of_function()const;
     C_Library()
     {
-        static const char dynamic[] = "yes";
+        string dynamic = "yes";
         dynamically = dynamic;
         ID = 10;
         year_creating = 1999;
         number_of_functions = 50;
     }
-    C_Library(const char* dynamically, const int ID, const int year_creating, const int number_of_functions)
+    C_Library(string dynamically, const int ID, const int year_creating, const int number_of_functions)
     {
 
         this->dynamically = dynamically;

@@ -33,7 +33,6 @@ bool Test_Delete(C_List& list)
 bool Test_Index_return(C_List& list)
 {
 
-
 	static const char diff[] = "yes";
 	C_Library new_el(diff, 20, 2001, 29);
 
@@ -41,10 +40,11 @@ bool Test_Index_return(C_List& list)
 
 	C_Library return_lib = list.Index_return(20);
 
-	int count = 1, value = 0;
+	int count = 0, value = 0;
 
-	const char* y = return_lib.getDynamically();
-	if (strcmp("yes", y))
+	string y1 = return_lib.getDynamically();
+	string y2 = "yes";
+	if (y1 == y2)
 		count++;
 	value = return_lib.getID();
 	if (value == 20)
@@ -65,7 +65,7 @@ bool Test_Index_return(C_List& list)
 bool Test_Difference(C_List& list)
 {
 
-	static char dynamically[] = "no";
+	string dynamically = "no";
 	C_Library new_lib1(dynamically, 20, 1998, 40);
 
 	list.list[1] = new_lib1;
@@ -76,7 +76,7 @@ bool Test_Difference(C_List& list)
 
 	float diff = list.Difference();
 
-	if (diff == 1.5)
+	if (diff == 3)
 		return true;
 	else
 		return false;

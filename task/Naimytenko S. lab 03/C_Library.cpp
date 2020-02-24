@@ -1,6 +1,6 @@
 #include "C_Library.h"
 
-void C_Library::setDynamically(const char* dynamically)
+void C_Library::setDynamically(string dynamically)
 {
     this->dynamically = dynamically;
 }
@@ -20,7 +20,7 @@ void  C_Library::setNumber_of_function(const int number_of_functions)
     this->number_of_functions = number_of_functions;
 }
 
-const char* C_Library::getDynamically()const
+string C_Library::getDynamically()const
 {
     return dynamically;
 }

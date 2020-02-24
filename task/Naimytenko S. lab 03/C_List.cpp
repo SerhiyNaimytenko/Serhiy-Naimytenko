@@ -12,6 +12,28 @@ int C_List::getSize_array()const
     return this->size;
 }
 
+int C_List::Read_file(string file_name)
+{
+    ifstream file (file_name);
+    if (!file)
+    {
+        cout << "Ошибка!!! Файл не открыто." << endl;
+        return 1;
+    }
+    int id, number_of_function, year_creating;
+    string dynamically;
+
+    for (int i = 0; i < size;i++)
+    {
+        file >> id >> number_of_function >>year_creating >> dynamically;
+        list[i].setID(id);
+        list[i].setNumber_of_function(number_of_function);
+        list[i].setYear_Creating(year_creating);
+        list[i].setDynamically(dynamically);
+    }
+    file.close();
+}
+
 void C_List::Create() // 1
 {
     cout<<"Происходит заполнеие масива данными" <<endl;
@@ -19,7 +41,7 @@ void C_List::Create() // 1
         list[i] = New_Lib(i + 1);
 }
 
-void C_List::Add(C_Library& lib, const int order)  // 3
+void C_List::Add(C_Library lib, const int order)  // 3
 {
     size++;
     C_Library* new_list = new C_Library[size];
@@ -47,8 +69,8 @@ void C_List::Delete(const int order) // 4
     C_Library* new_list = new C_Library[size];
    
     cout << "Елемент который вы удалили" << endl;
-    Index_output(list[order - 1], 1);
-
+    stringstream str = Str_return(list[order-1]);
+    Str_output(str,0);
     for (int i = 0; i < order - 1; i++)
         new_list[i] = list[i];
     for (int i = order - 1; i < size; i++)
@@ -61,43 +83,51 @@ void C_List::Delete(const int order) // 4
 
 }
 
-C_Library C_List::Index_return(const int index)
+C_Library& C_List::Index_return(const int index)
 {
-    int a;
-    for (int i = 0; i < size; i++)
+    int id;
+    for (int i=0; i < size; i++)
     {
-        a = list[i].getID();
-        if (a == index)
+        id = list[i].getID();
+        if (id == index) 
         {
-            a = i;
+            id = i;
             i = size;
         }
     }
-    return list[a];
+    return list[id];
 }
 
-
-void C_List::Index_output(const C_Library lib, int i)const  // 5
+stringstream C_List::Str_return(C_Library& lib)const  // 5
 {
-    int a;
-    cout << i;
-    a = lib.getID();
-    cout << a;
-    a = lib.getYear_Creating();
-    cout << a;
-    a = lib.getNumber_of_function();
-    cout << a;
-    string b;
-    b = lib.getDynamically();
-    cout << b << endl;
+    stringstream str;
+    str << " " << lib.getID() << " " << lib.getNumber_of_function() << " " << lib.getYear_Creating() << " " << lib.getDynamically();
+    return str;
+}
+
+void C_List::Str_output(stringstream& str,int i)const
+{
+    int number_of_function, year_creating, id;
+    string dynamically;
+    str >> id;
+    str >> number_of_function;
+    str >> year_creating;
+    str >> dynamically;
+    cout << i + 1 << "- "<< setw(3) << id << setw(15) << number_of_function << setw(19) << year_creating << setw(16) << dynamically <<endl;
 }
 
 void C_List::Output()const // 6
 {
+    stringstream str;
     cout << "Вивод на экран всех библиотек"<<endl;
-    cout << setw (5)<<"ID библиотеки\tГод создания\tКоличество функций в библиотеке\tДинамически подключается?" << endl;
+    cout.setf(std::ios::right);
+    cout <<"№" << setw(16) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << endl;
     for (int i = 0; i < size; i++)
-        Index_output(list[i], i + 1);
+    {
+        str = Str_return(list[i]);
+        Str_output(str,i);
+    }
+
 }
 
 float C_List::Difference()
@@ -107,10 +137,25 @@ float C_List::Difference()
     for (int i = 0; i < size; i++)
     {
         y = list[i].getDynamically();
-        if (strcmp("yes", y))
+        if (y == "yes")
             count++;
     }
     float dif = (float)size / (float)count;
-    cout << "В " << dif << " раз количество библиотек, которые динамически подключаются, меньше чем общее количество библиотек" << endl;
+    cout << "В "<< setprecision(5) << dif << " раз количество библиотек, которые динамически подключаются, меньше чем общее количество библиотек" << endl;
     return dif;
 }
+
+int C_List::Write_file(string file_name)
+{
+    ofstream file(file_name);
+    if (!file)
+    {
+        cout << "Ошибка!!! Файл не открыто." << endl;
+        return 1;
+    }
+    file << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << endl;
+    for (int i = 0; i < size;i++)
+       file << i + 1 << "- " <<setw(5) << list[i].getID() <<  setw(24) << list[i].getNumber_of_function() <<  setw(27) << list[i].getYear_Creating() <<  setw(23) << list[i].getDynamically() << endl;
+    file.close();
+}
+ 
