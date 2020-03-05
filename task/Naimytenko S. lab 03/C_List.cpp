@@ -34,6 +34,15 @@ int C_List::Read_file(string file_name)
     file.close();
 }
 
+C_Library Distribute(string str)
+{
+
+    list[i].setID(id);
+    list[i].setNumber_of_function(number_of_function);
+    list[i].setYear_Creating(year_creating);
+    list[i].setDynamically(dynamically);
+}
+
 void C_List::Create() // 1
 {
     cout<<"Происходит заполнеие масива данными" <<endl;
@@ -159,3 +168,7 @@ int C_List::Write_file(string file_name)
     file.close();
 }
  
+C_List:: ~C_List()
+{ 
+    delete[] list;
+}

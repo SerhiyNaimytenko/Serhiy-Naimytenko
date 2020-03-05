@@ -1,6 +1,8 @@
 #include "C_Library.h"
 #include "C_List.h"
 
+void Menu(C_List);
+
 int main()
 {
     setlocale(LC_ALL, "Rus");
@@ -76,11 +78,16 @@ int main()
     if (res == 1)
         return 1;
 
-    delete[] list_lib.list;
 
     if (_CrtDumpMemoryLeaks()) 
         cout <<endl<< "Есть утечка памяти" << endl;
     else
         cout << endl << "Нет утечки памяти" << endl;
     return 0;
+}
+
+
+void Menu(C_List list_lib)
+{
+
 }

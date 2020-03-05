@@ -11,6 +11,7 @@ public:
     void setSize_array(const int size);
     int  getSize_array()const;
     int Read_file(string);
+    C_Library Distribute(string);
     void Create();
     void Add(C_Library, const int);
     void Delete(const int);
@@ -20,4 +21,5 @@ public:
     void Output()const;
     float Difference();
     int Write_file(string);
+    ~C_List();
 };

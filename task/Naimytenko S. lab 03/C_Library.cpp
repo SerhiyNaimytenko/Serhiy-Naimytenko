@@ -39,3 +39,16 @@ int C_Library::getNumber_of_function()const
 {
     return this->number_of_functions;
 }
+
+C_Library:: C_Library() :dynamically("yes"), ID(10), year_creating(1999), number_of_functions(50)
+{
+}
+C_Library::C_Library(string dynamically, const int ID, const int year_creating, const int number_of_functions) :dynamically(dynamically), ID(ID), year_creating(year_creating), number_of_functions(number_of_functions)
+{ 
+}
+C_Library::C_Library(const C_Library& lib):dynamically(lib.dynamically),ID(lib.ID),year_creating(lib.year_creating),number_of_functions(lib.number_of_functions)
+{ 
+}
+C_Library::~C_Library()
+{
+}
