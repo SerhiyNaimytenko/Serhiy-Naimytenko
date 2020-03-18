@@ -5,13 +5,15 @@ int Menu();
 
 int main()
 {
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Rus");
 
     int res = Menu();
     if (res == 0)
         return 0;
-    if (_CrtDumpMemoryLeaks()) 
-        cout <<endl<< "Есть утечка памяти" << endl;
+    if (_CrtDumpMemoryLeaks())
+        cout << endl << "Есть утечка памяти" << endl;
     else
         cout << endl << "Нет утечки памяти" << endl;
     return 0;
@@ -31,8 +33,8 @@ int Menu()
     int res;
 
     if (command == 1)
-    { 
-        list_lib.Count_line(file_read); 
+    {
+        list_lib.Count_line(file_read);
         int size = list_lib.getSize_array();
         list_lib.list = new C_Library[size];
         res = list_lib.Read_file(file_read);
@@ -85,6 +87,9 @@ int Menu()
     cout << "Вывод полученого элемента на екран" << endl;
     stringstream str = list_lib.Str_return(index_lib);
     list_lib.Str_output(str, 0);
+
+    cout << "Вывод на экран" << endl;
+    list_lib.Check();
 
     float diff = list_lib.Difference();
 

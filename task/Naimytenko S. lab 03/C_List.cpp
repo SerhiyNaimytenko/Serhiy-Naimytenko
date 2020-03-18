@@ -14,33 +14,52 @@ int C_List::getSize_array()const
 
 int C_List::Read_file(string file_name)
 {
+
     ifstream file (file_name);
     if (!file)
     {
         cout << "Ошибка!!! Файл не открыто." << endl;
         return 1;
     }
-    int id, number_of_function, year_creating;
-    string dynamically;
-
-    for (int i = 0; i < size;i++)
+    string line;
+    for (int i = 0; i < size ; i++)
     {
-        file >> id >> number_of_function >>year_creating >> dynamically;
-        list[i].setID(id);
-        list[i].setNumber_of_function(number_of_function);
-        list[i].setYear_Creating(year_creating);
-        list[i].setDynamically(dynamically);
+        getline(file, line);
+        istringstream str(line); 
+        list[i] = Distribution(line);
+    } 
+    file.close();
+    return 0;
+}  
+
+void C_List::Count_line(string file_name)
+{
+    int size2 = 0;
+    size = size2;
+    ifstream file(file_name);
+    if (!file)
+    {
+        cout << "Ошибка!!! Файл не открыто." << endl;
+        return;
+    } 
+    string  line;
+    while (getline(file, line))
+    {
+        size2++;
     }
+    size = size2;
+
     file.close();
 }
 
-C_Library Distribute(string str)
+C_Library C_List::Distribution(string line)
 {
-
-    list[i].setID(id);
-    list[i].setNumber_of_function(number_of_function);
-    list[i].setYear_Creating(year_creating);
-    list[i].setDynamically(dynamically);
+    istringstream str(line);
+    int id, number_of_function, year_creating;
+    string dynamically;
+    str >> id >> number_of_function >> year_creating >> dynamically;
+    C_Library new_el(dynamically, id, year_creating, number_of_function);
+    return new_el;
 }
 
 void C_List::Create() // 1

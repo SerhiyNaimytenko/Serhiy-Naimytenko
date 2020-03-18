@@ -1,0 +1,5 @@
+1 30 2001 Yes Cs- String_
+20 40 1999 Yes Iostream;; 
+41 60 1999 No Math. H.
+51 15 1998 No Locale_-_ 
+3 20 1999 Yes Regex_ H-______-
