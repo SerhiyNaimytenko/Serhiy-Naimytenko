@@ -10,9 +10,9 @@ public:
     arr_Lib list;
     void setSize_array(const int size);
     int  getSize_array()const;
-    int Read_file(string);
+    int Read_file(string, string);
     void Count_line(string);
-    C_Library Distribution(string);
+    C_Library Distribution(string,string);
     void Create();
     void Add(C_Library, const int);
     void Delete(const int);
@@ -22,6 +22,8 @@ public:
     void Output()const;
     void Sort(func);
     float Difference();
+    void If_lib_connected();
+    void What_functions_are(int);
     int Write_file(string);
     void Check();
     ~C_List();

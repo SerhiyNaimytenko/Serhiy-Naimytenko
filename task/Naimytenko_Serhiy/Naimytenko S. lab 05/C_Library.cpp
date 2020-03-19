@@ -1,13 +1,13 @@
-#include "C_Library.h"
+﻿#include "C_Library.h"
 
-void C_Library::C_Function::setFunction(name_func name)
+void C_Library::C_Function::setFunction(string name)
 {
-    function = name;
+    this->function = name;
 }
 
-void C_Library::C_Function::Call_function()
+void C_Library::C_Function::What_function_is_in_this_library() //дилигирование
 {
-    cout << "�� ������� ������� - " << function << endl;
+    cout << "Функция - " << function << endl;
 }
 
 void C_Library::setDynamically(string dynamically)
@@ -35,6 +35,21 @@ void  C_Library::setNumber_of_function(const int number_of_functions)
     this->number_of_functions = number_of_functions;
 }
 
+void C_Library::setArr_func(string arr_func)
+{ 
+    function.setFunction(name); 
+}
+
+void C_Library::setLanguage_programming(string lang)
+{
+    this->lang.setLanguage_programming(lang);
+}
+
+void C_Library::setFunction(string name)
+{
+    function.setFunction(name);
+}
+
 string C_Library::getDynamically()const
 {
     return dynamically;
@@ -60,16 +75,14 @@ int C_Library::getNumber_of_function()const
     return this->number_of_functions;
 }
 
-void C_Library::Call()
+void C_Library::What_function_is_in_this_library() //дилигирование
 {
-    C_Function func;
-    func.Call_function();
+    function.What_function_is_in_this_library();
 }
 
-void C_Library::Call_setFunction(name_func name)
+void C_Library::Which_language_programming()
 {
-    C_Function func;
-    func.setFunction(name);
+
 }
 
 C_Library::C_Library() :dynamically("Yes"), name("Default"), ID(10), year_creating(1999), number_of_functions(50)

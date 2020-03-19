@@ -139,6 +139,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Builder.h" />
+    <ClInclude Include="C_Language.h" />
     <ClInclude Include="C_Library.h" />
     <ClInclude Include="C_List.h" />
     <ClInclude Include="Test.h">
@@ -147,6 +148,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Builder.cpp" />
+    <ClCompile Include="C_Language.cpp" />
     <ClCompile Include="C_Library.cpp" />
     <ClCompile Include="C_List.cpp" />
     <ClCompile Include="Main.cpp">

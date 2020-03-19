@@ -12,7 +12,8 @@
 #include <regex>
 #include <Windows.h>
 #include <stddef.h>
-#include <cstddef>
+#include <cstddef> 
+#include "C_Language.h" 
 
 using std::cin;
 using std::cout;
@@ -30,8 +31,8 @@ using std::regex;
 using std::regex_match;
 using std::regex_search; 
 
-typedef bool (func)(int, int);
-typedef char* name_func;
+typedef bool (func)(int, int); 
+
 
 class C_Library
 {
@@ -41,30 +42,59 @@ private:
     int ID;
     int year_creating;
     int number_of_functions;
+
     class C_Function
     {
     private:
-        name_func function;
+        string function;
     public:
-        void setFunction(name_func);
-        void Call_function();
+        void setFunction(string);
+        void What_function_is_in_this_library();
     };
+
+    C_Function function;
+    C_Language lang;
+
 public:
+
     void setDynamically(string);
+
     void setName(string);
+
     void setID(const int);
+
     void setYear_Creating(const int);
+
     void setNumber_of_function(const int);
+
+    void setArr_func(string);
+
+    void setLanguage_programming(string);
+
+    void setFunction(string);
+
     string getDynamically()const;
+
     string getName()const;
+
     int getID()const;
+
     int getYear_Creating()const;
+
     int getNumber_of_function()const;
-    void Call();
-    void Call_setFunction(name_func);
+
+    void What_function_is_in_this_library();
+
+    
+
+    void Which_language_programming();
+
     C_Library();
+
     C_Library(string, string, const int, const int, const int);
+   
     C_Library(const C_Library&);
+
     ~C_Library();
 };
 

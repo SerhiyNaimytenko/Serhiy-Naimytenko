@@ -185,7 +185,7 @@ void C_List::Str_output(stringstream& str, int i)const
 void C_List::Output()const // 6
 {
     stringstream str;
-    cout << "Вивод на экран всех библиотек" << endl;
+    cout << "Вивод на экран всех объектов" << endl;
     cout.setf(std::ios::right);
     cout << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(20) << "Название библиотеки" << endl;
     for (int i = 0; i < size; i++)

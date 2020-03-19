@@ -1,6 +1,7 @@
-#include "C_Library.h"
+ï»¿#include "C_Library.h"
 #include "C_List.h"
 #include "Builder.h" 
+#include"C_Language.h"
 
 void C_List::setSize_array(const int size)
 {
@@ -12,21 +13,28 @@ int C_List::getSize_array()const
     return this->size;
 }
 
-int C_List::Read_file(string file_name)
+int C_List::Read_file(string file_name,string file_name2)
 {
 
     ifstream file(file_name);
     if (!file)
     {
-        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
+        return 1;
+    }
+    ifstream file2(file_name2);
+    if (!file2)
+    {
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
         return 1;
     }
     string line;
+    string line2;
     for (int i = 0; i < size; i++)
     {
         getline(file, line);
-        istringstream str(line);
-        list[i] = Distribution(line);
+        getline(file2, line2); 
+        list[i] = Distribution(line,line2); 
     }
     file.close();
     return 0;
@@ -39,7 +47,7 @@ void C_List::Count_line(string file_name)
     ifstream file(file_name);
     if (!file)
     {
-        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
         return;
     }
     string  line;
@@ -52,9 +60,9 @@ void C_List::Count_line(string file_name)
     file.close();
 }
 
-C_Library C_List::Distribution(string line)
+C_Library C_List::Distribution(string line,string line2)
 {
-    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]* ([A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]*)?)");
+    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]* ([A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]*)?)");
     regex replace_reg1("([;]{2,})");
     regex replace_reg2("([_]{2,})");
     regex replace_reg3("([-]{2,})");
@@ -62,6 +70,7 @@ C_Library C_List::Distribution(string line)
     regex replace_reg5("([\.]{2,})");
     int id, number_of_function, year_creating;
     string dynamically, name = " ", name2 = " ", line_res;
+    string name_f,name_l; 
     int res = regex_match(line, regular);
     if (res)
     {
@@ -92,6 +101,10 @@ C_Library C_List::Distribution(string line)
         if (name2 != " " && name != " ")
             name = name + "_" + name2;
         C_Library new_el(dynamically, name, id, year_creating, number_of_function);
+        istringstream str2(line2);
+        str2 >> name_f >> name_l;
+        new_el.setFunction(name_f);
+        new_el.setLanguage_programming(name_l);
         return new_el;
     }
     C_Library new_el;
@@ -101,7 +114,7 @@ C_Library C_List::Distribution(string line)
 
 void C_List::Create() // 1
 {
-    cout << "Ïðîèñõîäèò çàïîëíåèå ìàñèâà äàííûìè" << endl;
+    cout << "ÐŸÑ€Ð¾Ð¸ÑÑ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ¸Ðµ Ð¼Ð°ÑÐ¸Ð²Ð° Ð´Ð°Ð½Ð½Ñ‹Ð¼Ð¸" << endl;
     for (int i = 0; i < size; i++)
         list[i] = New_Lib(i + 1);
 }
@@ -133,7 +146,7 @@ void C_List::Delete(const int order) // 4
     size--;
     arr_Lib new_list = new C_Library[size];
 
-    cout << "Åëåìåíò êîòîðûé âû óäàëèëè" << endl;
+    cout << "Ð•Ð»ÐµÐ¼ÐµÐ½Ñ‚ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð²Ñ‹ ÑƒÐ´Ð°Ð»Ð¸Ð»Ð¸" << endl;
     stringstream str = Str_return(list[order - 1]);
     Str_output(str, 0);
     for (int i = 0; i < order - 1; i++)
@@ -185,9 +198,9 @@ void C_List::Str_output(stringstream& str, int i)const
 void C_List::Output()const // 6
 {
     stringstream str;
-    cout << "Âèâîä íà ýêðàí âñåõ áèáëèîòåê" << endl;
+    cout << "Ð’Ð¸Ð²Ð¾Ð´ Ð½Ð° ÑÐºÑ€Ð°Ð½ Ð²ÑÐµÑ… Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²" << endl;
     cout.setf(std::ios::right);
-    cout << "¹" << setw(17) << "id áèáëèîòåêè" << setw(16) << "Êîë-âî ôóíêöèé" << setw(18) << "Ãîä å¸ ñîçäàíèÿ" << setw(30) << "Äèíìè÷åñêè ëè îíà ïîäêëþ÷åíà" << setw(20) << "Íàçâàíèå áèáëèîòåêè" << endl;
+    cout << "â„–" << setw(17) << "id Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << setw(16) << "ÐšÐ¾Ð»-Ð²Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹" << setw(18) << "Ð“Ð¾Ð´ ÐµÑ‘ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ" << setw(30) << "Ð”Ð¸Ð½Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð»Ð¸ Ð¾Ð½Ð° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°" << setw(20) << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << endl;
     for (int i = 0; i < size; i++)
     {
         str = Str_return(list[i]);
@@ -198,13 +211,13 @@ void C_List::Output()const // 6
 
 void C_List::Sort(func condition)
 {
-     C_Library temp;
+    C_Library temp;
 
     for (int i = 0; i < size; i++)
     {
         for (int j = 0; j < size; j++)
         {
-            if (condition(list[i].getID(),list[j].getID()))
+            if (condition(list[i].getID(), list[j].getID()))
             {
                 temp = list[i];
                 list[i] = list[j];
@@ -225,8 +238,24 @@ float C_List::Difference()
             count++;
     }
     float dif = (float)size / (float)count;
-    cout << "Â " << setprecision(5) << dif << " ðàç êîëè÷åñòâî áèáëèîòåê, êîòîðûå äèíàìè÷åñêè ïîäêëþ÷àþòñÿ, ìåíüøå ÷åì îáùåå êîëè÷åñòâî áèáëèîòåê" << endl;
+    cout << "Ð’ " << setprecision(5) << dif << " Ñ€Ð°Ð· ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐº, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð°ÑŽÑ‚ÑÑ, Ð¼ÐµÐ½ÑŒÑˆÐµ Ñ‡ÐµÐ¼ Ð¾Ð±Ñ‰ÐµÐµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐº" << endl;
     return dif;
+}
+
+void C_List::If_lib_connected()
+{ 
+    for (int i = 0; i < size; i++)
+    {
+        cout <<"Ð‘Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° "<< list[i].getName() << endl;
+        cout << "Ð’ Ð´Ð°Ð½Ð½Ð¾Ð¹ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐµ ÐµÑÑ‚ÑŒ Ñ‚Ð°ÐºÐ°Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ" << endl;
+        What_functions_are(i); 
+    }
+
+}
+
+void C_List::What_functions_are(int i)
+{
+        list[i].What_function_is_in_this_library(); 
 }
 
 int C_List::Write_file(string file_name)
@@ -234,10 +263,10 @@ int C_List::Write_file(string file_name)
     ofstream file(file_name);
     if (!file)
     {
-        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
+        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
         return 1;
     }
-    file << "¹" << setw(17) << "id áèáëèîòåêè" << setw(16) << "Êîë-âî ôóíêöèé" << setw(18) << "Ãîä å¸ ñîçäàíèÿ" << setw(30) << "Äèíìè÷åñêè ëè îíà ïîäêëþ÷åíà" << setw(17) << "Íàçâàíèå áèáëèîòåêè" << endl;
+    file << "â„–" << setw(17) << "id Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << setw(16) << "ÐšÐ¾Ð»-Ð²Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹" << setw(18) << "Ð“Ð¾Ð´ ÐµÑ‘ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ" << setw(30) << "Ð”Ð¸Ð½Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð»Ð¸ Ð¾Ð½Ð° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°" << setw(17) << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << endl;
     for (int i = 0; i < size; i++)
         file << i + 1 << "- " << setw(5) << list[i].getID() << setw(24) << list[i].getNumber_of_function() << setw(27) << list[i].getYear_Creating() << setw(23) << list[i].getDynamically() << setw(23) << list[i].getName() << endl;
     file.close();
@@ -245,7 +274,7 @@ int C_List::Write_file(string file_name)
 
 void C_List::Check()
 {
-    regex regular("(([A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]*)+(_)+([A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]*))");
+    regex regular("(([A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]*)+(_)+([A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]*))");
     string check;
     stringstream str;
     int k = 0;

@@ -37,6 +37,7 @@ int Menu()
     cin >> command;
 
     string file_read = "file_read.txt";
+    string file_func = "All_func.txt";
     string file_write = "file_write.txt";
     int res;
 
@@ -45,7 +46,7 @@ int Menu()
         list_lib.Count_line(file_read);
         int size = list_lib.getSize_array();
         list_lib.list = new C_Library[size];
-        res = list_lib.Read_file(file_read);
+        res = list_lib.Read_file(file_read,file_func);
         if (res == 1)
             return 1;
     }
@@ -90,6 +91,7 @@ int Menu()
     cin >> order;
 
 
+
     C_Library index_lib = list_lib.Index_return(order);
 
     cout << "Вывод полученого элемента на екран" << endl;
@@ -108,6 +110,10 @@ int Menu()
     list_lib.Check();
 
     float diff = list_lib.Difference();
+
+    cout << "Проверка. Какие библиотеки сейчас подключены." << endl;
+
+    list_lib.If_lib_connected();
 
     res = list_lib.Write_file(file_write);
     if (res == 1)
