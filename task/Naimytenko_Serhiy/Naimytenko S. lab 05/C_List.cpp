@@ -30,7 +30,7 @@ int C_List::Read_file(string file_name,string file_name2)
     }
     string line;
     string line2;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         getline(file, line);
         getline(file2, line2); 
@@ -68,43 +68,48 @@ C_Library C_List::Distribution(string line,string line2)
     regex replace_reg3("([-]{2,})");
     regex replace_reg4("([:]{2,})");
     regex replace_reg5("([\.]{2,})");
+    C_Library new_l;
     int id, number_of_function, year_creating;
     string dynamically, name = " ", name2 = " ", line_res;
     string name_f,name_l; 
-    int res = regex_match(line, regular);
+    auto res = regex_match(line, regular);
     if (res)
     {
 
         if (regex_search(line, replace_reg1))
         {
-            line = regex_replace(line, replace_reg1, ";");
+           auto line_res = regex_replace(line, replace_reg1, ";");
         }
         if (regex_search(line, replace_reg2))
         {
-            line = regex_replace(line, replace_reg2, "_");
+            auto line_res = regex_replace(line, replace_reg2, "_");
         }
         if (regex_search(line, replace_reg3))
         {
-            line = regex_replace(line, replace_reg3, "-");
+            auto line_res = regex_replace(line, replace_reg3, "-");
         }
         if (regex_search(line, replace_reg4))
         {
-            line = regex_replace(line, replace_reg4, ":");
+            auto line_res = regex_replace(line, replace_reg4, ":");
         }
         if (regex_search(line, replace_reg5))
         {
-            line = regex_replace(line, replace_reg5, ".");
+            auto line_res = regex_replace(line, replace_reg5, ".");
         }
 
-        istringstream str(line);
+        istringstream str(line_res);
         str >> id >> number_of_function >> year_creating >> dynamically >> name >> name2;
         if (name2 != " " && name != " ")
             name = name + "_" + name2;
-        C_Library new_el(dynamically, name, id, year_creating, number_of_function);
+
         istringstream str2(line2);
         str2 >> name_f >> name_l;
-        new_el.setFunction(name_f);
-        new_el.setLanguage_programming(name_l);
+
+        new_l.setFunction(name_f);
+        new_l.setLanguage_programming(name_l);
+
+        C_Library new_el(dynamically, name, id, year_creating, number_of_function,new_l);
+
         return new_el;
     }
     C_Library new_el;
@@ -115,7 +120,7 @@ C_Library C_List::Distribution(string line,string line2)
 void C_List::Create() // 1
 {
     cout << "Происходит заполнеие масива данными" << endl;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         list[i] = New_Lib(i + 1);
 }
 
@@ -124,7 +129,7 @@ void C_List::Add(C_Library lib, const int order)  // 3
     size++;
     arr_Lib new_list = new C_Library[size];
 
-    for (int i = 0, j = 0; i < size; i++)
+    for (size_t i = 0, j = 0; i < size; i++)
     {
         if (i != order - 1)
         {
@@ -136,7 +141,7 @@ void C_List::Add(C_Library lib, const int order)  // 3
     }
     delete[] list;
     list = new C_Library[size];
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         list[i] = new_list[i];
     delete[] new_list;
 }
@@ -149,13 +154,13 @@ void C_List::Delete(const int order) // 4
     cout << "Елемент который вы удалили" << endl;
     stringstream str = Str_return(list[order - 1]);
     Str_output(str, 0);
-    for (int i = 0; i < order - 1; i++)
+    for (size_t i = 0; i < order - 1; i++)
         new_list[i] = list[i];
-    for (int i = order - 1; i < size; i++)
+    for (size_t i = order - 1; i < size; i++)
         new_list[i] = list[i + 1];
     delete[] list;
     list = new C_Library[size];
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         list[i] = new_list[i];
     delete[] new_list;
 
@@ -164,7 +169,7 @@ void C_List::Delete(const int order) // 4
 C_Library& C_List::Index_return(const int index)
 {
     int id;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         id = list[i].getID();
         if (id == index)
@@ -201,7 +206,7 @@ void C_List::Output()const // 6
     cout << "Вивод на экран всех объектов" << endl;
     cout.setf(std::ios::right);
     cout << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(20) << "Название библиотеки" << endl;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         str = Str_return(list[i]);
         Str_output(str, i);
@@ -213,9 +218,9 @@ void C_List::Sort(func condition)
 {
     C_Library temp;
 
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
-        for (int j = 0; j < size; j++)
+        for (size_t j = 0; j < size; j++)
         {
             if (condition(list[i].getID(), list[j].getID()))
             {
@@ -231,7 +236,7 @@ float C_List::Difference()
 {
     int count = 0;
     string y;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
         y = list[i].getDynamically();
         if (y == "yes")
@@ -243,10 +248,13 @@ float C_List::Difference()
 }
 
 void C_List::If_lib_connected()
+
 { 
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
-        cout <<"Библиотека "<< list[i].getName() << endl;
+        cout << endl << "В языке програмирования \"";
+        list[i].Which_language_programming();
+        cout  << "\" используется библиотека " << list[i].getName() << endl;
         cout << "В данной библиотеке есть такая функция" << endl;
         What_functions_are(i); 
     }
@@ -267,7 +275,7 @@ int C_List::Write_file(string file_name)
         return 1;
     }
     file << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(17) << "Название библиотеки" << endl;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
         file << i + 1 << "- " << setw(5) << list[i].getID() << setw(24) << list[i].getNumber_of_function() << setw(27) << list[i].getYear_Creating() << setw(23) << list[i].getDynamically() << setw(23) << list[i].getName() << endl;
     file.close();
 }
@@ -278,10 +286,10 @@ void C_List::Check()
     string check;
     stringstream str;
     int k = 0;
-    for (int i = 0; i < size; i++)
+    for (size_t i = 0; i < size; i++)
     {
-        check = list[i].getDynamically() + " " + list[i].getName();
-        if (regex_search(check, regular))
+        auto check_res = list[i].getDynamically() + " " + list[i].getName();
+        if (regex_search(check_res, regular))
         {
             str = Str_return(list[i]);
             Str_output(str, k);

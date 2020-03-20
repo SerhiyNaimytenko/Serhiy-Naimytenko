@@ -8,4 +8,12 @@ private:
 public:
 	void setLanguage_programming(string) ;
 	void Which_language_programming();
+
+    C_Language();
+
+    C_Language(string);
+
+    C_Language(const C_Language&);
+
+    ~C_Language();
 };

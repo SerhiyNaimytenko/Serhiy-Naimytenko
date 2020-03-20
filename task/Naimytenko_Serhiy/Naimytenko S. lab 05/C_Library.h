@@ -50,6 +50,13 @@ private:
     public:
         void setFunction(string);
         void What_function_is_in_this_library();
+        C_Function();
+
+        C_Function(string);
+
+        C_Function(const C_Function&);
+
+        ~C_Function();
     };
 
     C_Function function;
@@ -85,13 +92,11 @@ public:
 
     void What_function_is_in_this_library();
 
-    
-
     void Which_language_programming();
 
     C_Library();
 
-    C_Library(string, string, const int, const int, const int);
+    C_Library(string, string, const int, const int, const int, C_Library);
    
     C_Library(const C_Library&);
 

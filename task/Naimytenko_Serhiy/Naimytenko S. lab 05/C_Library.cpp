@@ -82,16 +82,30 @@ void C_Library::What_function_is_in_this_library() //дилигирование
 
 void C_Library::Which_language_programming()
 {
-
+    lang.Which_language_programming();
 }
 
-C_Library::C_Library() :dynamically("Yes"), name("Default"), ID(10), year_creating(1999), number_of_functions(50)
+C_Library::C_Function::C_Function() : function("Default")
 {
 }
-C_Library::C_Library(string dynamically, string name, const int ID, const int year_creating, const int number_of_functions) : dynamically(dynamically), name(name), ID(ID), year_creating(year_creating), number_of_functions(number_of_functions)
+C_Library::C_Function::C_Function(string function) : function(function)
 {
 }
-C_Library::C_Library(const C_Library& lib) : dynamically(lib.dynamically), name(lib.name), ID(lib.ID), year_creating(lib.year_creating), number_of_functions(lib.number_of_functions)
+C_Library::C_Function::C_Function(const C_Function& func) : function(func.function)
+{
+}
+C_Library::C_Function::~C_Function()
+{
+}
+
+
+C_Library::C_Library() :dynamically("Yes"), name("Default"), ID(10), year_creating(1999), number_of_functions(50),function("default"),lang("default")
+{
+}
+C_Library::C_Library(string dynamically, string name, const int ID, const int year_creating, const int number_of_functions,C_Library lib) : dynamically(dynamically), name(name), ID(ID), year_creating(year_creating), number_of_functions(number_of_functions), function(lib.function), lang(lib.lang)
+{
+}
+C_Library::C_Library(const C_Library& lib) : dynamically(lib.dynamically), name(lib.name), ID(lib.ID), year_creating(lib.year_creating), number_of_functions(lib.number_of_functions), function(lib.function),lang(lib.lang)
 {
 }
 C_Library::~C_Library()
