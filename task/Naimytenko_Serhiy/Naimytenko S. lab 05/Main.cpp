@@ -17,7 +17,7 @@ int main()
     SetConsoleOutputCP(1251);
     setlocale(LC_ALL, "Rus");
 
-    int res = Menu();
+    int res = Menu(); 
     if (res == 0)
         return 0;
     if (_CrtDumpMemoryLeaks())
