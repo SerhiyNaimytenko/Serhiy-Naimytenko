@@ -37,7 +37,7 @@ int C_List::Read_file(string file_name,string file_name2)
         list[i] = Distribution(line,line2); 
     }
     file.close();
-    return 0;
+    return 0; 
 }
 
 void C_List::Count_line(string file_name)
@@ -78,26 +78,26 @@ C_Library C_List::Distribution(string line,string line2)
 
         if (regex_search(line, replace_reg1))
         {
-           auto line_res = regex_replace(line, replace_reg1, ";");
+            line = regex_replace(line, replace_reg1, ";");
         }
         if (regex_search(line, replace_reg2))
         {
-            auto line_res = regex_replace(line, replace_reg2, "_");
+            line = regex_replace(line, replace_reg2, "_");
         }
         if (regex_search(line, replace_reg3))
         {
-            auto line_res = regex_replace(line, replace_reg3, "-");
+            line = regex_replace(line, replace_reg3, "-");
         }
         if (regex_search(line, replace_reg4))
         {
-            auto line_res = regex_replace(line, replace_reg4, ":");
+            line = regex_replace(line, replace_reg4, ":");
         }
         if (regex_search(line, replace_reg5))
         {
-            auto line_res = regex_replace(line, replace_reg5, ".");
+            line = regex_replace(line, replace_reg5, ".");
         }
 
-        istringstream str(line_res);
+        istringstream str(line);
         str >> id >> number_of_function >> year_creating >> dynamically >> name >> name2;
         if (name2 != " " && name != " ")
             name = name + "_" + name2;

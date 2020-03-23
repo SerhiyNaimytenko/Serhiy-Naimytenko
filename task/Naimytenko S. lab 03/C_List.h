@@ -8,18 +8,18 @@ private:
 public:
 
     C_Library* list;
-    void setSize_array(const int size);
-    int  getSize_array()const;
+    void setSize_array(const int size);//
+    int  getSize_array()const;//
     int Read_file(string);  
     void Count_line(string);
     C_Library Distribution(string);
-    void Create();
-    void Add(C_Library, const int);
-    void Delete(const int);
+    void Create();//
+    void Add(C_Library, const int);//
+    void Delete(const int);//
     stringstream Str_return(C_Library&)const;
     void Str_output(stringstream&,int)const;
-    C_Library& Index_return(const int index);
-    void Output()const;
+    C_Library& Index_return(const int index);//
+    void Output()const;//
     float Difference();
     int Write_file(string);
     ~C_List();

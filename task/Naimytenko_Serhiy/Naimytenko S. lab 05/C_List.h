@@ -10,16 +10,16 @@ public:
     arr_Lib list;
     void setSize_array(const int size);
     int  getSize_array()const;
-    int Read_file(string, string);
-    void Count_line(string);
-    C_Library Distribution(string,string);
-    void Create();
-    void Add(C_Library, const int);
-    void Delete(const int);
-    stringstream Str_return(C_Library&)const;
-    void Str_output(stringstream&, int)const;
-    C_Library& Index_return(const int index);
-    void Output()const;
+    int Read_file(string, string);//
+    void Count_line(string);//
+    C_Library Distribution(string,string);//
+    void Create();//
+    void Add(C_Library, const int);//
+    void Delete(const int);//
+    stringstream Str_return(C_Library&)const;//
+    void Str_output(stringstream&, int)const;//
+    C_Library& Index_return(const int index);//
+    void Output()const;//
     void Sort(func);
     float Difference();
     void If_lib_connected();

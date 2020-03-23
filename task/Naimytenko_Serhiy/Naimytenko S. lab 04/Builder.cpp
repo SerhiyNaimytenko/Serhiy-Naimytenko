@@ -35,6 +35,3 @@ C_Library New_Lib(int i) // 2
 
 }
 
-
-
-
