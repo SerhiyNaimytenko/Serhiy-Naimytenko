@@ -25,7 +25,7 @@ public:
     int getYear_Creating()const;
     int getNumber_of_function()const;
     C_Library();
-    C_Library(char*, const int, const int, const int);
+    C_Library(const char*, const int, const int, const int);
     C_Library(const C_Library&);
     ~C_Library();
 };

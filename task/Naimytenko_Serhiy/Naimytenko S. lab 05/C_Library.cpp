@@ -5,9 +5,9 @@ void C_Library::C_Function::setFunction(string name)
     this->function = name;
 }
 
-void C_Library::C_Function::What_function_is_in_this_library() //дилигирование
+string C_Library::C_Function::What_function_is_in_this_library() //дилигирование
 {
-    cout << "Функция - " << function << endl;
+    return function;
 }
 
 void C_Library::setDynamically(string dynamically)
@@ -75,14 +75,14 @@ int C_Library::getNumber_of_function()const
     return this->number_of_functions;
 }
 
-void C_Library::What_function_is_in_this_library() //дилигирование
+string C_Library::What_function_is_in_this_library() //дилигирование
 {
-    function.What_function_is_in_this_library();
+    return function.What_function_is_in_this_library();
 }
 
-void C_Library::Which_language_programming()
+string C_Library::Which_language_programming()
 {
-    lang.Which_language_programming();
+    return lang.Which_language_programming();
 }
 
 C_Library::C_Function::C_Function() : function("Default")

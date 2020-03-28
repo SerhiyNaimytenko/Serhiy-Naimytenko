@@ -29,21 +29,21 @@ using std::getline;
 using std::istringstream;
 using std::regex;
 using std::regex_match;
-using std::regex_search; 
+using std::regex_search;
 
-typedef bool (func)(int, int); 
+typedef bool (func)(int, int);
 
 
-class C_Library
+class C_Library  
 {
-private:
+protected:
     string dynamically;
     string name;
     int ID;
     int year_creating;
     int number_of_functions;
 
-    class C_Function
+    class C_Function final
     {
     private:
         string function;
@@ -74,8 +74,6 @@ public:
 
     void setNumber_of_function(const int);
 
-    void setArr_func(string);
-
     void setLanguage_programming(string);
 
     void setFunction(string);
@@ -97,10 +95,28 @@ public:
     C_Library();
 
     C_Library(string, string, const int, const int, const int, C_Library);
-   
+
     C_Library(const C_Library&);
 
     ~C_Library();
 };
 
 typedef C_Library* arr_Lib;
+
+class C_Expansion final : public C_Library
+{
+private:
+    string expansion_file;
+public:
+    void setExpansion_file(string);
+
+    string getExpansion_file();
+
+    C_Expansion();
+
+    C_Expansion(string, C_Library);
+
+    C_Expansion(const C_Expansion&);
+
+    ~C_Expansion();
+};

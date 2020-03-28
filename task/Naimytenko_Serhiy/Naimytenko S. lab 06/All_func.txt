@@ -1,0 +1,5 @@
+max_size() C++
+precision(int_x) C++
+asin C
+char_*decimal_point C++
+no_function C++

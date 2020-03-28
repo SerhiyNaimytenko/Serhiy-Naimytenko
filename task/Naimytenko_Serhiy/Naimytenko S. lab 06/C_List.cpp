@@ -1,7 +1,7 @@
-ï»¿#include "C_Library.h"
 #include "C_List.h"
 #include "Builder.h" 
 #include"C_Language.h"
+#include"C_Library.h"
 
 void C_List::setSize_array(const int size)
 {
@@ -13,19 +13,19 @@ int C_List::getSize_array()const
     return this->size;
 }
 
-int C_List::Read_file(string file_name,string file_name2)
+int C_List::Read_file(string file_name, string file_name2)
 {
 
     ifstream file(file_name);
     if (!file)
     {
-        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
+        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
         return 1;
     }
     ifstream file2(file_name2);
     if (!file2)
     {
-        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
+        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
         return 1;
     }
     string line;
@@ -33,11 +33,11 @@ int C_List::Read_file(string file_name,string file_name2)
     for (size_t i = 0; i < size; i++)
     {
         getline(file, line);
-        getline(file2, line2); 
-        list[i] = Distribution(line,line2); 
+        getline(file2, line2);
+        list[i] = Distribution(line, line2);
     }
     file.close();
-    return 0; 
+    return 0;
 }
 
 void C_List::Count_line(string file_name)
@@ -47,7 +47,7 @@ void C_List::Count_line(string file_name)
     ifstream file(file_name);
     if (!file)
     {
-        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
+        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
         return;
     }
     string  line;
@@ -60,9 +60,9 @@ void C_List::Count_line(string file_name)
     file.close();
 }
 
-C_Library C_List::Distribution(string line,string line2)
+C_Library C_List::Distribution(string line, string line2)
 {
-    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]* ([A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]*)?)");
+    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]* ([A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]*)?)");
     regex replace_reg1("([;]{2,})");
     regex replace_reg2("([_]{2,})");
     regex replace_reg3("([-]{2,})");
@@ -71,7 +71,7 @@ C_Library C_List::Distribution(string line,string line2)
     C_Library new_l;
     int id, number_of_function, year_creating;
     string dynamically, name = " ", name2 = " ", line_res;
-    string name_f,name_l; 
+    string name_f, name_l;
     auto res = regex_match(line, regular);
     if (res)
     {
@@ -108,26 +108,37 @@ C_Library C_List::Distribution(string line,string line2)
         new_l.setFunction(name_f);
         new_l.setLanguage_programming(name_l);
 
-        C_Library new_el(dynamically, name, id, year_creating, number_of_function,new_l);
+        C_Library new_el(dynamically, name, id, year_creating, number_of_function, new_l);
 
         return new_el;
     }
     C_Library new_el;
     return new_el;
-
 }
 
-void C_List::Create() // 1
+C_Expansion* C_List::Create() // 1
 {
-    cout << "ÐŸÑ€Ð¾Ð¸ÑÑ…Ð¾Ð´Ð¸Ñ‚ Ð·Ð°Ð¿Ð¾Ð»Ð½ÐµÐ¸Ðµ Ð¼Ð°ÑÐ¸Ð²Ð° Ð´Ð°Ð½Ð½Ñ‹Ð¼Ð¸" << endl;
+    cout << "Ïðîèñõîäèò çàïîëíåèå ìàñèâà äàííûìè" << endl;
+    C_Expansion* list_e = new C_Expansion[size];
     for (size_t i = 0; i < size; i++)
-        list[i] = New_Lib(i + 1);
+    {
+        list_e[i] = New_Lib(i + 1);
+        list[i].setDynamically(list_e[i].getDynamically());
+        list[i].setID(list_e[i].getID());
+        list[i].setName(list_e[i].getName());
+        list[i].setLanguage_programming(list_e[i].Which_language_programming());
+        list[i].setFunction(list_e[i].What_function_is_in_this_library());
+        list[i].setYear_Creating(list_e[i].getYear_Creating());
+        list[i].setNumber_of_function(list_e[i].getNumber_of_function());
+    }
+    return list_e;
 }
 
 void C_List::Add(C_Library lib, const int order)  // 3
 {
     size++;
     arr_Lib new_list = new C_Library[size];
+    
 
     for (size_t i = 0, j = 0; i < size; i++)
     {
@@ -146,14 +157,15 @@ void C_List::Add(C_Library lib, const int order)  // 3
     delete[] new_list;
 }
 
-void C_List::Delete(const int order) // 4
+void C_List::Delete(const int order,C_Expansion* list_e) // 4
 {
     size--;
     arr_Lib new_list = new C_Library[size];
 
-    cout << "Ð•Ð»ÐµÐ¼ÐµÐ½Ñ‚ ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ð¹ Ð²Ñ‹ ÑƒÐ´Ð°Ð»Ð¸Ð»Ð¸" << endl;
+    cout << "Åëåìåíò êîòîðûé âû óäàëèëè" << endl;
     stringstream str = Str_return(list[order - 1]);
     Str_output(str, 0);
+    obj.Output_index(list_e[order-1]);
     for (size_t i = 0; i < order - 1; i++)
         new_list[i] = list[i];
     for (size_t i = order - 1; i < size; i++)
@@ -192,7 +204,7 @@ void C_List::Str_output(stringstream& str, int i)const
 {
 
     int number_of_function, year_creating, id;
-    string dynamically, name1,name2 = "";
+    string dynamically, name1, name2 = "";
     str >> id;
     str >> number_of_function;
     str >> year_creating;
@@ -200,29 +212,32 @@ void C_List::Str_output(stringstream& str, int i)const
     str >> name1;
     str >> name2;
     if (name2 == "")
-        cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(29) << name1 << endl;
+        cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(29) << name1;
     else
-        cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(23) << name1 <<" "<< name2 << endl;
+        cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(23) << name1 << " " << name2;
 }
 
-void C_List::Output()const // 6
+void C_List::Output(C_Expansion* list_e)const // 6
 {
     stringstream str;
-    cout << "Ð’Ð¸Ð²Ð¾Ð´ Ð½Ð° ÑÐºÑ€Ð°Ð½ Ð²ÑÐµÑ… Ð¾Ð±ÑŠÐµÐºÑ‚Ð¾Ð²" << endl;
+    cout << "Âèâîä íà ýêðàí âñåõ îáúåêòîâ" << endl;
     cout.setf(std::ios::right);
-    cout << "â„–" << setw(17) << "id Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << setw(16) << "ÐšÐ¾Ð»-Ð²Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹" << setw(18) << "Ð“Ð¾Ð´ ÐµÑ‘ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ" << setw(30) << "Ð”Ð¸Ð½Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð»Ð¸ Ð¾Ð½Ð° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°" << setw(20) << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << endl;
+    cout << "¹" << setw(17) << "id áèáëèîòåêè" << setw(16) << "Êîë-âî ôóíêöèé" << setw(18) << "Ãîä å¸ ñîçäàíèÿ" << setw(30) << "Äèíìè÷åñêè ëè îíà ïîäêëþ÷åíà" << setw(20) << "Íàçâàíèå áèáëèîòåêè" << setw(29) << "Ðàñøèðåíèå ôàéëà áèáëèîòêåêè" << endl;
     for (size_t i = 0; i < size; i++)
     {
+       
         str = Str_return(list[i]);
         Str_output(str, i);
+        obj.Output_index(list_e[i]);
+        
     }
 
 }
 
-void C_List::Sort(func condition)
+void C_List::Sort(func condition,C_Expansion*& list_e)
 {
     C_Library temp;
-
+    C_Expansion temp_e;
     for (size_t i = 0; i < size; i++)
     {
         for (size_t j = 0; j < size; j++)
@@ -230,8 +245,11 @@ void C_List::Sort(func condition)
             if (condition(list[i].getID(), list[j].getID()))
             {
                 temp = list[i];
+                temp_e = list_e[i];
                 list[i] = list[j];
+                list_e[i] = list_e[j];
                 list[j] = temp;
+                list_e[j] = temp_e;
             }
         }
     }
@@ -248,58 +266,55 @@ float C_List::Difference()
             count++;
     }
     float dif = (float)size / (float)count;
-    cout << "Ð’ " << setprecision(5) << dif << " Ñ€Ð°Ð· ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐº, ÐºÐ¾Ñ‚Ð¾Ñ€Ñ‹Ðµ Ð´Ð¸Ð½Ð°Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡Ð°ÑŽÑ‚ÑÑ, Ð¼ÐµÐ½ÑŒÑˆÐµ Ñ‡ÐµÐ¼ Ð¾Ð±Ñ‰ÐµÐµ ÐºÐ¾Ð»Ð¸Ñ‡ÐµÑÑ‚Ð²Ð¾ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐº" << endl;
+    cout << "Â " << setprecision(5) << dif << " ðàç êîëè÷åñòâî áèáëèîòåê, êîòîðûå äèíàìè÷åñêè ïîäêëþ÷àþòñÿ, ìåíüøå ÷åì îáùåå êîëè÷åñòâî áèáëèîòåê" << endl;
     return dif;
 }
 
-void C_List::If_lib_connected()
+void C_List::If_lib_connected(C_Expansion* list_e)
 
-{ 
+{
     for (size_t i = 0; i < size; i++)
     {
-        cout << endl << "Ð’ ÑÐ·Ñ‹ÐºÐµ Ð¿Ñ€Ð¾Ð³Ñ€Ð°Ð¼Ð¸Ñ€Ð¾Ð²Ð°Ð½Ð¸Ñ \"";
+        cout << endl << "Â ÿçûêå ïðîãðàìèðîâàíèÿ \"";
         cout << list[i].Which_language_programming();
-        cout  << "\" Ð¸ÑÐ¿Ð¾Ð»ÑŒÐ·ÑƒÐµÑ‚ÑÑ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ° " << list[i].getName() << endl;
-        cout << "Ð’ Ð´Ð°Ð½Ð½Ð¾Ð¹ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐµ ÐµÑÑ‚ÑŒ Ñ‚Ð°ÐºÐ°Ñ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ñ" << endl;
-        cout << "Ð¤ÑƒÐ½ÐºÑ†Ð¸Ñ - " << list[i].What_function_is_in_this_library() << endl;
+        cout << "\" èñïîëüçóåòñÿ áèáëèîòåêà " << list[i].getName() << endl;
+        cout << "Â äàííîé áèáëèîòåêå åñòü òàêàÿ ôóíêöèÿ" << endl;
+        cout << "Ôóíêöèÿ - " << list[i].What_function_is_in_this_library() << endl;
+        cout << "Ðàñøèðåíèÿ áèáëèîòåêè - " << list_e[i].getExpansion_file() << endl;
     }
 
 }
 
-
-
-int C_List::Write_file(string file_name)
+int C_List::Write_file(string file_name, C_Expansion* list_e)
 {
     ofstream file(file_name);
     if (!file)
     {
-        cout << "ÐžÑˆÐ¸Ð±ÐºÐ°!!! Ð¤Ð°Ð¹Ð» Ð½Ðµ Ð¾Ñ‚ÐºÑ€Ñ‹Ñ‚Ð¾." << endl;
+        cout << "Îøèáêà!!! Ôàéë íå îòêðûòî." << endl;
         return 1;
     }
-    file << "â„–" << setw(17) << "id Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << setw(16) << "ÐšÐ¾Ð»-Ð²Ð¾ Ñ„ÑƒÐ½ÐºÑ†Ð¸Ð¹" << setw(18) << "Ð“Ð¾Ð´ ÐµÑ‘ ÑÐ¾Ð·Ð´Ð°Ð½Ð¸Ñ" << setw(30) << "Ð”Ð¸Ð½Ð¼Ð¸Ñ‡ÐµÑÐºÐ¸ Ð»Ð¸ Ð¾Ð½Ð° Ð¿Ð¾Ð´ÐºÐ»ÑŽÑ‡ÐµÐ½Ð°" << setw(17) << "ÐÐ°Ð·Ð²Ð°Ð½Ð¸Ðµ Ð±Ð¸Ð±Ð»Ð¸Ð¾Ñ‚ÐµÐºÐ¸" << endl;
+    file << "¹" << setw(17) << "id áèáëèîòåêè" << setw(16) << "Êîë-âî ôóíêöèé" << setw(18) << "Ãîä å¸ ñîçäàíèÿ" << setw(30) << "Äèíìè÷åñêè ëè îíà ïîäêëþ÷åíà" << setw(17) << "Íàçâàíèå áèáëèîòåêè" << setw(17) << "Ðàñøèðåíèå ôàéëà áèáëèîòêåêè" << endl;
     for (size_t i = 0; i < size; i++)
-        file << i + 1 << "- " << setw(5) << list[i].getID() << setw(24) << list[i].getNumber_of_function() << setw(27) << list[i].getYear_Creating() << setw(23) << list[i].getDynamically() << setw(23) << list[i].getName() << endl;
+        file << i + 1 << "- " << setw(5) << list[i].getID() << setw(24) << list[i].getNumber_of_function() << setw(27) << list[i].getYear_Creating() << setw(23) << list[i].getDynamically() << setw(23) << list[i].getName() << setw(23) << list_e[i].getExpansion_file()<< endl;
     file.close();
 }
 
-void C_List::Check()
+void C_List::Check(C_Expansion* list_e)
 {
-    regex regular("(([A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]*)+( )+([A-ZÐ-Ð¯]+[\\wÐ-Ð¯Ð°-Ñ\-|_|:|;|\.]*))");
+    regex regular("(([A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]*)+( )+([A-ZÀ-ß]+[\\wÀ-ßà-ÿ\-|_|:|;|\.]*))");
     string check;
     stringstream str;
     int k = 0;
     for (size_t i = 0; i < size; i++)
     {
-        auto check_res =  list[i].getName();
+        auto check_res = list[i].getName();
         if (regex_match(check_res, regular))
         {
             str = Str_return(list[i]);
             Str_output(str, k);
+            obj.Output_index(list_e[i]);
             k++;
-
         }
-
-
     }
 }
 
