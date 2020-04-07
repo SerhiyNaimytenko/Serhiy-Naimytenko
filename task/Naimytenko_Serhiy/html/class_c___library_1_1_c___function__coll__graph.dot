@@ -1,0 +1,9 @@
+digraph "C_Library::C_Function"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{C_Library::C_Function\n||+ setFunction()\l+ What_function_is_in\l_this_library()\l+ C_Function()\l+ C_Function()\l+ C_Function()\l+ ~C_Function()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="< Оголошення класу C_Function"];
+  Node2 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -function" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node2 [label="{string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}

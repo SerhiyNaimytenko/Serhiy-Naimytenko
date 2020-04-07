@@ -1,0 +1,36 @@
+digraph "Test_Delete"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="Test_Delete",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Оголошення функції що перевіряє метод Delete."];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="C_List::Delete",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___list.html#a4fcb8ef3b695e31768f62bacdcec4a1c",tooltip="Оголошення методу видалення елементу з масиву"];
+  Node2 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="C_List::Str_output",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___list.html#ad8631cdd73743dfabed36452e3945571",tooltip="Оголошення методу виведення на екран одного єлементу"];
+  Node2 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="C_List::Str_return",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___list.html#aaf80c9d851abe6c47ae5038495d10582",tooltip="Оголошення методу зчитування інформації з обьекту та перетворення її в потік"];
+  Node4 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="Capabilities::getDynamically",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a2812145051c4f18ac491a23325718572",tooltip=" "];
+  Node4 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Capabilities::getExpansion_file",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a644f9f79ce52b281f5238e6f3a6cc723",tooltip=" "];
+  Node6 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="C_Expansion::getExpansion_file",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#a17b12fda0638be269c0cc4ed77241a0e",tooltip=" "];
+  Node4 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="Capabilities::getFunction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#ac9c35b051c2c9b7ac13f5bd26fa20287",tooltip=" "];
+  Node4 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="Capabilities::getID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#ae6b8df73f7541c6aec415a1349d81609",tooltip=" "];
+  Node4 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="Capabilities::getLanguage\l_programming",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a9f1242d32005ba185d59cd2546d4a81d",tooltip=" "];
+  Node10 -> Node11 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node11 [label="C_Language::Which_language\l_programming",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___language.html#a50653a73bc6123571199497cc099e93e",tooltip=" "];
+  Node4 -> Node12 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node12 [label="Capabilities::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a60cb2f5c33f97d3143b5607645bad3bc",tooltip=" "];
+  Node4 -> Node13 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node13 [label="Capabilities::getNumber\l_of_function",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a7e0096c00d744ebe113ad43a6c1b7192",tooltip=" "];
+  Node4 -> Node14 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node14 [label="Capabilities::getYear\l_Creating",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#ab419499872636174b58e7aec4fc83c2e",tooltip=" "];
+  Node1 -> Node15 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node15 [label="C_List::getSize_array",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___list.html#a9ec4a64920eafd9aed2b2be5de9a0583",tooltip=" "];
+}

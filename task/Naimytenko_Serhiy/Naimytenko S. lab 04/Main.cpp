@@ -23,7 +23,7 @@ int main()
 int Menu()
 {
     C_List list_lib;
-    cout << "Cоздание масива" << endl;
+   
     int command;
     cout << "Введите вариант заполнения масива 1- из файла 2-конструктором" << endl;
     cin >> command;
@@ -47,6 +47,7 @@ int Menu()
         int size;
         cout << "Введите размер масива" << endl;
         cin >> size;
+        cout << "Cоздание масива" << endl;
         list_lib.setSize_array(size);
         list_lib.list = new C_Library[size];
         list_lib.Create();

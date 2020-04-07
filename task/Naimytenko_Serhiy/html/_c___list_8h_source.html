@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.16"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Laba1: Текст програми C_List.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Laba1
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Створено системою Doxygen 1.8.16 -->
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:cf05388f2679ee054f2beb29a391d25f4e673ac3&amp;dn=gpl-2.0.txt GPL-v2 */
+$(function() {
+  initMenu('',false,false,'search.php','Пошук');
+});
+/* @license-end */</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle">
+<div class="title">C_List.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_c___list_8h.html">Див. документацію.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_c___library_8h.html">C_Library.h</a>&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_c___list.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c___list.html">C_List</a> </div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_c___list.html#a8f8248ebf5165fb1ec975284d2644eaf">   14</a></span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c___list.html#a8f8248ebf5165fb1ec975284d2644eaf">size</a>; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00016"></a><span class="lineno"><a class="line" href="class_c___list.html#adc9519687144379a026393f5e4720988">   16</a></span>&#160;    <a class="code" href="class_capabilities.html">Capabilities</a>* <a class="code" href="class_c___list.html#adc9519687144379a026393f5e4720988">list</a>; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a5511233b135800bdd4ca140d07766381">setSize_array</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_c___list.html#a8f8248ebf5165fb1ec975284d2644eaf">size</a>);</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">int</span>  <a class="code" href="class_c___list.html#a9ec4a64920eafd9aed2b2be5de9a0583">getSize_array</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_c___list.html#a2b6df7deab8abf0b57e83b67201cdb2f">Read_file</a>(<span class="keywordtype">string</span>, <span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_c___list.html#ae2854408058ced75acd768b3999d74d3">Count_line</a>(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a48473c06e08530f2f54ac6d16eb111e3">Distribution</a>(<span class="keywordtype">string</span>,<span class="keywordtype">string</span>,<span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#ae83153cfe0a8a5e1ab37ed1883f13f32">Create</a>();</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#ab7a36eaada5c59d2266a13616e8f0558">Add</a>(<a class="code" href="class_capabilities.html">Capabilities</a>, <span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a4fcb8ef3b695e31768f62bacdcec4a1c">Delete</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    stringstream <a class="code" href="class_c___list.html#aaf80c9d851abe6c47ae5038495d10582">Str_return</a>(<a class="code" href="class_capabilities.html">Capabilities</a>)<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#ad8631cdd73743dfabed36452e3945571">Str_output</a>(stringstream&amp;, <span class="keywordtype">int</span>)<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_capabilities.html">Capabilities</a>&amp; <a class="code" href="class_c___list.html#a328431d35b2b421c2ab291fce19361b4">Index_return</a>(<span class="keyword">const</span> <span class="keywordtype">int</span> index);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a5f9dcd2b28ab744a00a1ef6c3cd16d97">Output</a>()<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a3575f416a20cc95b7223e5fbcfe4544a">Sort</a>(<a class="code" href="_c___library_8h.html#a651ce65613fa9663da40e7b4eeab1513">func</a>);</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">float</span> <a class="code" href="class_c___list.html#a0c4310f370198ad6eee179e9bb400397">Difference</a>();</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a489a77f80c02e08d37f6aa0b4aebdbfe">Info_about_lib</a>();</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">int</span> <a class="code" href="class_c___list.html#aa569158194b44b5b2ced374b5f84a4ef">Write_file</a>(<span class="keywordtype">string</span>);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c___list.html#a4621b67120dec6b8ec75d4c6bf16ff0f">Check</a>();</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_c___list.html#a0162b386c8dc31cd3053ad1238e24e01">~C_List</a>();</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
+</div><!-- fragment --></div><!-- contents -->
+<div class="ttc" id="aclass_c___list_html"><div class="ttname"><a href="class_c___list.html">C_List</a></div><div class="ttdoc">&lt; Оголошення класу списку</div><div class="ttdef"><b>Definition:</b> C_List.h:11</div></div>
+<div class="ttc" id="aclass_capabilities_html_ab8e6e48a03cf8b8c6ec07945cf8ca88a"><div class="ttname"><a href="class_capabilities.html#ab8e6e48a03cf8b8c6ec07945cf8ca88a">Capabilities::setExpansion</a></div><div class="ttdeci">void setExpansion(C_Expansion)</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:219</div></div>
+<div class="ttc" id="a_c___list_8h_html"><div class="ttname"><a href="_c___list_8h.html">C_List.h</a></div></div>
+<div class="ttc" id="aclass_capabilities_html_afa93b84a809bcc591880f68cd3fbebd7"><div class="ttname"><a href="class_capabilities.html#afa93b84a809bcc591880f68cd3fbebd7">Capabilities::setID</a></div><div class="ttdeci">void setID(const int) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:254</div></div>
+<div class="ttc" id="aclass_capabilities_html_a49d355fa046c597db298932227193e3a"><div class="ttname"><a href="class_capabilities.html#a49d355fa046c597db298932227193e3a">Capabilities::getCapabilities</a></div><div class="ttdeci">string getCapabilities()</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:239</div></div>
+<div class="ttc" id="aclass_c___list_html_adc9519687144379a026393f5e4720988"><div class="ttname"><a href="class_c___list.html#adc9519687144379a026393f5e4720988">C_List::list</a></div><div class="ttdeci">Capabilities * list</div><div class="ttdoc">оголошення масиву класу Capabilities.</div><div class="ttdef"><b>Definition:</b> C_List.h:16</div></div>
+<div class="ttc" id="aclass_c___list_html_a4fcb8ef3b695e31768f62bacdcec4a1c"><div class="ttname"><a href="class_c___list.html#a4fcb8ef3b695e31768f62bacdcec4a1c">C_List::Delete</a></div><div class="ttdeci">void Delete(const int)</div><div class="ttdoc">Оголошення методу видалення елементу з масиву</div><div class="ttdef"><b>Definition:</b> C_List.cpp:262</div></div>
+<div class="ttc" id="aclass_capabilities_html_ac9c35b051c2c9b7ac13f5bd26fa20287"><div class="ttname"><a href="class_capabilities.html#ac9c35b051c2c9b7ac13f5bd26fa20287">Capabilities::getFunction</a></div><div class="ttdeci">string getFunction() override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:304</div></div>
+<div class="ttc" id="aclass_c___list_html_a489a77f80c02e08d37f6aa0b4aebdbfe"><div class="ttname"><a href="class_c___list.html#a489a77f80c02e08d37f6aa0b4aebdbfe">C_List::Info_about_lib</a></div><div class="ttdeci">void Info_about_lib()</div><div class="ttdoc">Оголошення методу виведення на екран інформації про бібліотеки</div><div class="ttdef"><b>Definition:</b> C_List.cpp:435</div></div>
+<div class="ttc" id="aclass_c___list_html_a2b6df7deab8abf0b57e83b67201cdb2f"><div class="ttname"><a href="class_c___list.html#a2b6df7deab8abf0b57e83b67201cdb2f">C_List::Read_file</a></div><div class="ttdeci">int Read_file(string, string)</div><div class="ttdoc">Оголошення методу зчитування інформації з файлу</div><div class="ttdef"><b>Definition:</b> C_List.cpp:29</div></div>
+<div class="ttc" id="aclass_c___list_html_a8f8248ebf5165fb1ec975284d2644eaf"><div class="ttname"><a href="class_c___list.html#a8f8248ebf5165fb1ec975284d2644eaf">C_List::size</a></div><div class="ttdeci">float size</div><div class="ttdoc">поле класу C_List - розмір масиву</div><div class="ttdef"><b>Definition:</b> C_List.h:14</div></div>
+<div class="ttc" id="aclass_c___expansion_html_afa348268045ff9ec5094c8ea6eba320f"><div class="ttname"><a href="class_c___expansion.html#afa348268045ff9ec5094c8ea6eba320f">C_Expansion::getID</a></div><div class="ttdeci">int getID() const override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:175</div></div>
+<div class="ttc" id="aclass_c___list_html_ae83153cfe0a8a5e1ab37ed1883f13f32"><div class="ttname"><a href="class_c___list.html#ae83153cfe0a8a5e1ab37ed1883f13f32">C_List::Create</a></div><div class="ttdeci">void Create()</div><div class="ttdoc">Оголошення методу заповнення масиву данними</div><div class="ttdef"><b>Definition:</b> C_List.cpp:170</div></div>
+<div class="ttc" id="aclass_c___list_html_a9ec4a64920eafd9aed2b2be5de9a0583"><div class="ttname"><a href="class_c___list.html#a9ec4a64920eafd9aed2b2be5de9a0583">C_List::getSize_array</a></div><div class="ttdeci">int getSize_array() const</div><div class="ttdef"><b>Definition:</b> C_List.cpp:16</div></div>
+<div class="ttc" id="aclass_c___list_html_a5f9dcd2b28ab744a00a1ef6c3cd16d97"><div class="ttname"><a href="class_c___list.html#a5f9dcd2b28ab744a00a1ef6c3cd16d97">C_List::Output</a></div><div class="ttdeci">void Output() const</div><div class="ttdoc">Оголошення методу виведення всього масиву на екран</div><div class="ttdef"><b>Definition:</b> C_List.cpp:366</div></div>
+<div class="ttc" id="aclass_capabilities_html_ae6b8df73f7541c6aec415a1349d81609"><div class="ttname"><a href="class_capabilities.html#ae6b8df73f7541c6aec415a1349d81609">Capabilities::getID</a></div><div class="ttdeci">int getID() const override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:289</div></div>
+<div class="ttc" id="aclass_c___list_html_a3575f416a20cc95b7223e5fbcfe4544a"><div class="ttname"><a href="class_c___list.html#a3575f416a20cc95b7223e5fbcfe4544a">C_List::Sort</a></div><div class="ttdeci">void Sort(func)</div><div class="ttdoc">Оголошення методу сортування масиву</div><div class="ttdef"><b>Definition:</b> C_List.cpp:387</div></div>
+<div class="ttc" id="aclass_c___list_html_a328431d35b2b421c2ab291fce19361b4"><div class="ttname"><a href="class_c___list.html#a328431d35b2b421c2ab291fce19361b4">C_List::Index_return</a></div><div class="ttdeci">Capabilities &amp; Index_return(const int index)</div><div class="ttdoc">Оголошення методу що повертає обьект визначивши його по дентифікатору</div><div class="ttdef"><b>Definition:</b> C_List.cpp:297</div></div>
+<div class="ttc" id="aclass_c___list_html_a4621b67120dec6b8ec75d4c6bf16ff0f"><div class="ttname"><a href="class_c___list.html#a4621b67120dec6b8ec75d4c6bf16ff0f">C_List::Check</a></div><div class="ttdeci">void Check()</div><div class="ttdoc">Оголошення методу виведення на екран обьектів в ім'ї яких 2 слова</div><div class="ttdef"><b>Definition:</b> C_List.cpp:480</div></div>
+<div class="ttc" id="aclass_c___list_html_a0c4310f370198ad6eee179e9bb400397"><div class="ttname"><a href="class_c___list.html#a0c4310f370198ad6eee179e9bb400397">C_List::Difference</a></div><div class="ttdeci">float Difference()</div><div class="ttdoc">Оголошення методу що визначає відношення кількості бібліотек що динамічно підключаються до загальної ...</div><div class="ttdef"><b>Definition:</b> C_List.cpp:412</div></div>
+<div class="ttc" id="aclass_c___expansion_html_aefc7d5be701d17a9c2cb8a68b9b2953e"><div class="ttname"><a href="class_c___expansion.html#aefc7d5be701d17a9c2cb8a68b9b2953e">C_Expansion::setDynamically</a></div><div class="ttdeci">void setDynamically(string) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:130</div></div>
+<div class="ttc" id="aclass_capabilities_html_a2812145051c4f18ac491a23325718572"><div class="ttname"><a href="class_capabilities.html#a2812145051c4f18ac491a23325718572">Capabilities::getDynamically</a></div><div class="ttdeci">string getDynamically() const override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:279</div></div>
+<div class="ttc" id="aclass_c___expansion_html_abe47e51e51111dc989a1b0ba4bc3c0ef"><div class="ttname"><a href="class_c___expansion.html#abe47e51e51111dc989a1b0ba4bc3c0ef">C_Expansion::setYear_Creating</a></div><div class="ttdeci">void setYear_Creating(const int) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:145</div></div>
+<div class="ttc" id="aclass_c___expansion_html_afbba2e538692e4aba0d7169ee5880f42"><div class="ttname"><a href="class_c___expansion.html#afbba2e538692e4aba0d7169ee5880f42">C_Expansion::setName</a></div><div class="ttdeci">void setName(string) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:135</div></div>
+<div class="ttc" id="aclass_capabilities_html_a644f9f79ce52b281f5238e6f3a6cc723"><div class="ttname"><a href="class_capabilities.html#a644f9f79ce52b281f5238e6f3a6cc723">Capabilities::getExpansion_file</a></div><div class="ttdeci">string getExpansion_file()</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:224</div></div>
+<div class="ttc" id="aclass_capabilities_html_ab419499872636174b58e7aec4fc83c2e"><div class="ttname"><a href="class_capabilities.html#ab419499872636174b58e7aec4fc83c2e">Capabilities::getYear_Creating</a></div><div class="ttdeci">int getYear_Creating() const override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:294</div></div>
+<div class="ttc" id="aclass_c___list_html_a0162b386c8dc31cd3053ad1238e24e01"><div class="ttname"><a href="class_c___list.html#a0162b386c8dc31cd3053ad1238e24e01">C_List::~C_List</a></div><div class="ttdeci">~C_List()</div><div class="ttdoc">Оголошення деструктора</div><div class="ttdef"><b>Definition:</b> C_List.cpp:498</div></div>
+<div class="ttc" id="a_c___library_8h_html_a651ce65613fa9663da40e7b4eeab1513"><div class="ttname"><a href="_c___library_8h.html#a651ce65613fa9663da40e7b4eeab1513">func</a></div><div class="ttdeci">bool() func(int, int)</div><div class="ttdef"><b>Definition:</b> C_Library.h:41</div></div>
+<div class="ttc" id="aclass_c___list_html_aaf80c9d851abe6c47ae5038495d10582"><div class="ttname"><a href="class_c___list.html#aaf80c9d851abe6c47ae5038495d10582">C_List::Str_return</a></div><div class="ttdeci">stringstream Str_return(Capabilities) const</div><div class="ttdoc">Оголошення методу зчитування інформації з обьекту та перетворення її в потік</div><div class="ttdef"><b>Definition:</b> C_List.cpp:320</div></div>
+<div class="ttc" id="aclass_capabilities_html_a7e0096c00d744ebe113ad43a6c1b7192"><div class="ttname"><a href="class_capabilities.html#a7e0096c00d744ebe113ad43a6c1b7192">Capabilities::getNumber_of_function</a></div><div class="ttdeci">int getNumber_of_function() const override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:299</div></div>
+<div class="ttc" id="aclass_c___list_html_a5511233b135800bdd4ca140d07766381"><div class="ttname"><a href="class_c___list.html#a5511233b135800bdd4ca140d07766381">C_List::setSize_array</a></div><div class="ttdeci">void setSize_array(const int size)</div><div class="ttdoc">&lt; підключення файлу C_Library.h</div><div class="ttdef"><b>Definition:</b> C_List.cpp:11</div></div>
+<div class="ttc" id="aclass_capabilities_html_a60cb2f5c33f97d3143b5607645bad3bc"><div class="ttname"><a href="class_capabilities.html#a60cb2f5c33f97d3143b5607645bad3bc">Capabilities::getName</a></div><div class="ttdeci">string getName() const override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:284</div></div>
+<div class="ttc" id="aclass_capabilities_html"><div class="ttname"><a href="class_capabilities.html">Capabilities</a></div><div class="ttdoc">&lt; Оголошення класа спадкоемця Capabilities</div><div class="ttdef"><b>Definition:</b> C_Library.h:160</div></div>
+<div class="ttc" id="aclass_c___list_html_aa569158194b44b5b2ced374b5f84a4ef"><div class="ttname"><a href="class_c___list.html#aa569158194b44b5b2ced374b5f84a4ef">C_List::Write_file</a></div><div class="ttdeci">int Write_file(string)</div><div class="ttdoc">Оголошення методу зчитування в файл</div><div class="ttdef"><b>Definition:</b> C_List.cpp:457</div></div>
+<div class="ttc" id="aclass_c___expansion_html_a019c61c804285794336f3f363b5a0020"><div class="ttname"><a href="class_c___expansion.html#a019c61c804285794336f3f363b5a0020">C_Expansion::setNumber_of_function</a></div><div class="ttdeci">void setNumber_of_function(const int) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:150</div></div>
+<div class="ttc" id="aclass_c___expansion_html_a94652bff9cb6ac083d2b4e7761d21b04"><div class="ttname"><a href="class_c___expansion.html#a94652bff9cb6ac083d2b4e7761d21b04">C_Expansion::setFunction</a></div><div class="ttdeci">void setFunction(string) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:160</div></div>
+<div class="ttc" id="aclass_c___expansion_html"><div class="ttname"><a href="class_c___expansion.html">C_Expansion</a></div><div class="ttdoc">&lt; Оголошення класа спадкоемця C_Expansion</div><div class="ttdef"><b>Definition:</b> C_Library.h:114</div></div>
+<div class="ttc" id="aclass_c___list_html_ab7a36eaada5c59d2266a13616e8f0558"><div class="ttname"><a href="class_c___list.html#ab7a36eaada5c59d2266a13616e8f0558">C_List::Add</a></div><div class="ttdeci">void Add(Capabilities, const int)</div><div class="ttdoc">Оголошення методу додавання нового елементу в масив</div><div class="ttdef"><b>Definition:</b> C_List.cpp:227</div></div>
+<div class="ttc" id="a_c___library_8h_html"><div class="ttname"><a href="_c___library_8h.html">C_Library.h</a></div></div>
+<div class="ttc" id="aclass_c___list_html_ae2854408058ced75acd768b3999d74d3"><div class="ttname"><a href="class_c___list.html#ae2854408058ced75acd768b3999d74d3">C_List::Count_line</a></div><div class="ttdeci">int Count_line(string)</div><div class="ttdoc">Оголошення методу визначення розміру масиву</div><div class="ttdef"><b>Definition:</b> C_List.cpp:64</div></div>
+<div class="ttc" id="aclass_c___expansion_html_ab26c54ef83c3f722ccf3b4b50de713c3"><div class="ttname"><a href="class_c___expansion.html#ab26c54ef83c3f722ccf3b4b50de713c3">C_Expansion::setLanguage_programming</a></div><div class="ttdeci">void setLanguage_programming(string) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:155</div></div>
+<div class="ttc" id="aclass_c___expansion_html_a3ef2086c8a05879c1688633962284bfb"><div class="ttname"><a href="class_c___expansion.html#a3ef2086c8a05879c1688633962284bfb">C_Expansion::setExpansion_file</a></div><div class="ttdeci">void setExpansion_file(string)</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:120</div></div>
+<div class="ttc" id="aclass_c___list_html_a48473c06e08530f2f54ac6d16eb111e3"><div class="ttname"><a href="class_c___list.html#a48473c06e08530f2f54ac6d16eb111e3">C_List::Distribution</a></div><div class="ttdeci">void Distribution(string, string, int)</div><div class="ttdoc">Оголошення методу створення обьекту із інформації зчитаної з файлу</div><div class="ttdef"><b>Definition:</b> C_List.cpp:90</div></div>
+<div class="ttc" id="aclass_capabilities_html_a9f1242d32005ba185d59cd2546d4a81d"><div class="ttname"><a href="class_capabilities.html#a9f1242d32005ba185d59cd2546d4a81d">Capabilities::getLanguage_programming</a></div><div class="ttdeci">string getLanguage_programming() override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:309</div></div>
+<div class="ttc" id="aclass_c___expansion_html_a5ad19e87097825596dda14bdecdf3595"><div class="ttname"><a href="class_c___expansion.html#a5ad19e87097825596dda14bdecdf3595">C_Expansion::setID</a></div><div class="ttdeci">void setID(const int) override</div><div class="ttdef"><b>Definition:</b> C_Library.cpp:140</div></div>
+<div class="ttc" id="aclass_c___list_html_ad8631cdd73743dfabed36452e3945571"><div class="ttname"><a href="class_c___list.html#ad8631cdd73743dfabed36452e3945571">C_List::Str_output</a></div><div class="ttdeci">void Str_output(stringstream &amp;, int) const</div><div class="ttdoc">Оголошення методу виведення на екран одного єлементу</div><div class="ttdef"><b>Definition:</b> C_List.cpp:335</div></div>
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Створено системою &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.16
+</small></address>
+</body>
+</html>

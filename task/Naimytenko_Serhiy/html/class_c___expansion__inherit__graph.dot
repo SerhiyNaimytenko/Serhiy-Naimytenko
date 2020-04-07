@@ -1,0 +1,9 @@
+digraph "C_Expansion"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{C_Expansion\n|- expansion_file\l|+ setExpansion_file()\l+ getExpansion_file()\l+ setDynamically()\l+ setName()\l+ setID()\l+ setYear_Creating()\l+ setNumber_of_function()\l+ setLanguage_programming()\l+ setFunction()\l+ getDynamically()\lі ще  10...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="< Оголошення класа спадкоемця C_Expansion"];
+  Node2 -> Node1 [dir="back",color="midnightblue",fontsize="12",style="solid",arrowtail="onormal",fontname="Helvetica"];
+  Node2 [label="{C_Library\n|# dynamically\l# name\l# ID\l# year_creating\l# number_of_functions\l# function\l# lang\l|+ setDynamically()\l+ setName()\l+ setID()\l+ setYear_Creating()\l+ setNumber_of_function()\l+ setLanguage_programming()\l+ setFunction()\l+ getDynamically()\l+ getName()\l+ getID()\lі ще  8...\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___library.html",tooltip="< Оголошення базового класу C_Library"];
+}

@@ -31,8 +31,8 @@ int Menu()
     int res;
 
     if (command == 1)
-    { 
-        list_lib.Count_line(file_read); 
+    {
+        list_lib.Count_line(file_read);
         int size = list_lib.getSize_array();
         list_lib.list = new C_Library[size];
         res = list_lib.Read_file(file_read);
@@ -92,5 +92,5 @@ int Menu()
     if (res == 1)
         return 1;
 
-
+    return 0;
 }

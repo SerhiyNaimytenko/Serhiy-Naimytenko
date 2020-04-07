@@ -1,0 +1,9 @@
+digraph "C_Language"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{C_Language\n||+ setLanguage_programming()\l+ Which_language_programming()\l+ C_Language()\l+ C_Language()\l+ C_Language()\l+ ~C_Language()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="< Оголошення класу C_Language"];
+  Node2 -> Node1 [color="grey25",fontsize="12",style="solid",label=" -language" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node2 [label="{string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+}

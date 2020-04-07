@@ -62,7 +62,7 @@ void C_List::Count_line(string file_name)
 
 C_Library C_List::Distribution(string line, string line2)
 {
-    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]* ([A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]*)?)");
+    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]*[ ]?([A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]*)?)");
     regex replace_reg1("([;]{2,})");
     regex replace_reg2("([_]{2,})");
     regex replace_reg3("([-]{2,})");
@@ -74,7 +74,7 @@ C_Library C_List::Distribution(string line, string line2)
     string name_f, name_l;
     auto res = regex_match(line, regular);
     if (res)
-    {
+    { 
 
         if (regex_search(line, replace_reg1))
         {

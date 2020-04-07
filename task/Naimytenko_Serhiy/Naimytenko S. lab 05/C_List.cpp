@@ -13,7 +13,7 @@ int C_List::getSize_array()const
     return this->size;
 }
 
-int C_List::Read_file(string file_name,string file_name2)
+int C_List::Read_file(string file_name, string file_name2)
 {
 
     ifstream file(file_name);
@@ -33,11 +33,11 @@ int C_List::Read_file(string file_name,string file_name2)
     for (size_t i = 0; i < size; i++)
     {
         getline(file, line);
-        getline(file2, line2); 
-        list[i] = Distribution(line,line2); 
+        getline(file2, line2);
+        list[i] = Distribution(line, line2);
     }
     file.close();
-    return 0; 
+    return 0;
 }
 
 void C_List::Count_line(string file_name)
@@ -60,9 +60,9 @@ void C_List::Count_line(string file_name)
     file.close();
 }
 
-C_Library C_List::Distribution(string line,string line2)
+C_Library C_List::Distribution(string line, string line2)
 {
-    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]* ([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*)?)");
+    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*[ ]?([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*)?)");
     regex replace_reg1("([;]{2,})");
     regex replace_reg2("([_]{2,})");
     regex replace_reg3("([-]{2,})");
@@ -71,7 +71,7 @@ C_Library C_List::Distribution(string line,string line2)
     C_Library new_l;
     int id, number_of_function, year_creating;
     string dynamically, name = " ", name2 = " ", line_res;
-    string name_f,name_l; 
+    string name_f, name_l;
     auto res = regex_match(line, regular);
     if (res)
     {
@@ -108,7 +108,7 @@ C_Library C_List::Distribution(string line,string line2)
         new_l.setFunction(name_f);
         new_l.setLanguage_programming(name_l);
 
-        C_Library new_el(dynamically, name, id, year_creating, number_of_function,new_l);
+        C_Library new_el(dynamically, name, id, year_creating, number_of_function, new_l);
 
         return new_el;
     }
@@ -192,7 +192,7 @@ void C_List::Str_output(stringstream& str, int i)const
 {
 
     int number_of_function, year_creating, id;
-    string dynamically, name1,name2 = "";
+    string dynamically, name1, name2 = "";
     str >> id;
     str >> number_of_function;
     str >> year_creating;
@@ -202,7 +202,7 @@ void C_List::Str_output(stringstream& str, int i)const
     if (name2 == "")
         cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(29) << name1 << endl;
     else
-        cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(23) << name1 <<" "<< name2 << endl;
+        cout << i + 1 << "- " << setw(10) << id << setw(13) << number_of_function << setw(21) << year_creating << setw(20) << dynamically << setw(23) << name1 << " " << name2 << endl;
 }
 
 void C_List::Output()const // 6
@@ -254,12 +254,12 @@ float C_List::Difference()
 
 void C_List::If_lib_connected()
 
-{ 
+{
     for (size_t i = 0; i < size; i++)
     {
         cout << endl << "В языке програмирования \"";
         cout << list[i].Which_language_programming();
-        cout  << "\" используется библиотека " << list[i].getName() << endl;
+        cout << "\" используется библиотека " << list[i].getName() << endl;
         cout << "В данной библиотеке есть такая функция" << endl;
         cout << "Функция - " << list[i].What_function_is_in_this_library() << endl;
     }
@@ -290,7 +290,7 @@ void C_List::Check()
     int k = 0;
     for (size_t i = 0; i < size; i++)
     {
-        auto check_res =  list[i].getName();
+        auto check_res = list[i].getName();
         if (regex_match(check_res, regular))
         {
             str = Str_return(list[i]);

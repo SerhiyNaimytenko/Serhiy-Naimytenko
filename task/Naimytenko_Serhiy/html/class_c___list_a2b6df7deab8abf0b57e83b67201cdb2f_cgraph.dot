@@ -1,0 +1,26 @@
+digraph "C_List::Read_file"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="C_List::Read_file",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Оголошення методу зчитування інформації з файлу"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="C_List::Distribution",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___list.html#a48473c06e08530f2f54ac6d16eb111e3",tooltip="Оголошення методу створення обьекту із інформації зчитаної з файлу"];
+  Node2 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="C_Expansion::setDynamically",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#aefc7d5be701d17a9c2cb8a68b9b2953e",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="C_Expansion::setExpansion_file",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#a3ef2086c8a05879c1688633962284bfb",tooltip=" "];
+  Node2 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="C_Expansion::setFunction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#a94652bff9cb6ac083d2b4e7761d21b04",tooltip=" "];
+  Node2 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="C_Expansion::setID",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#a5ad19e87097825596dda14bdecdf3595",tooltip=" "];
+  Node2 -> Node7 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node7 [label="C_Expansion::setLanguage\l_programming",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#ab26c54ef83c3f722ccf3b4b50de713c3",tooltip=" "];
+  Node2 -> Node8 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node8 [label="C_Expansion::setName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#afbba2e538692e4aba0d7169ee5880f42",tooltip=" "];
+  Node2 -> Node9 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node9 [label="C_Expansion::setNumber\l_of_function",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#a019c61c804285794336f3f363b5a0020",tooltip=" "];
+  Node2 -> Node10 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node10 [label="C_Expansion::setYear\l_Creating",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___expansion.html#abe47e51e51111dc989a1b0ba4bc3c0ef",tooltip=" "];
+}

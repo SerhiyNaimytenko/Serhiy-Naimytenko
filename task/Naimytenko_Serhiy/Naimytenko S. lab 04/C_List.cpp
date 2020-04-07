@@ -54,15 +54,15 @@ void C_List::Count_line(string file_name)
  
 C_Library C_List::Distribution(string line)
 {
-    regex regular ("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]* ([A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]*)?)");  
+    regex regular("([\\d]* [\\d]* [\\d]* (Yes|No) [A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]*[ ]?([A-ZР-п]+[\\wР-пр-џ\-|_|:|;|\.]*)?)");
     regex replace_reg1("([;]{2,})");
     regex replace_reg2("([_]{2,})");
     regex replace_reg3("([-]{2,})");
     regex replace_reg4("([:]{2,})");
     regex replace_reg5("([\.]{2,})");
     int id, number_of_function, year_creating;
-        string dynamically, name=" ", name2=" ",line_res;
-        int res = regex_match(line, regular);
+     string dynamically, name=" ", name2=" ",line_res;
+    int res = regex_match(line, regular);
     if ( res )
     {
 
@@ -233,11 +233,12 @@ void C_List::Check()
     int k = 0;
     for (int i = 0; i < size; i++)
     {
-        check = list[i].getDynamically() +" " + list[i].getName();
+        check = list[i].getDynamically() + " " + list[i].getName();
             if (regex_search(check, regular))
             {
                   str = Str_return(list[i]);
                   Str_output(str,k);
+                  cout << endl;
                   k++;
 
             }

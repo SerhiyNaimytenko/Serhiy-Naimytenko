@@ -1,0 +1,18 @@
+digraph "C_List::Info_about_lib"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  rankdir="LR";
+  Node1 [label="C_List::Info_about_lib",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Оголошення методу виведення на екран інформації про бібліотеки"];
+  Node1 -> Node2 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node2 [label="Capabilities::getCapabilities",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a49d355fa046c597db298932227193e3a",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node3 [label="Capabilities::getFunction",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#ac9c35b051c2c9b7ac13f5bd26fa20287",tooltip=" "];
+  Node1 -> Node4 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node4 [label="Capabilities::getLanguage\l_programming",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a9f1242d32005ba185d59cd2546d4a81d",tooltip=" "];
+  Node4 -> Node5 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node5 [label="C_Language::Which_language\l_programming",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___language.html#a50653a73bc6123571199497cc099e93e",tooltip=" "];
+  Node1 -> Node6 [color="midnightblue",fontsize="12",style="solid",fontname="Helvetica"];
+  Node6 [label="Capabilities::getName",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_capabilities.html#a60cb2f5c33f97d3143b5607645bad3bc",tooltip=" "];
+}

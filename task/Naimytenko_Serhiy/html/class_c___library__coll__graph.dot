@@ -1,0 +1,17 @@
+digraph "C_Library"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
+  node [fontname="Helvetica",fontsize="12",shape=record];
+  Node1 [label="{C_Library\n||+ setDynamically()\l+ setName()\l+ setID()\l+ setYear_Creating()\l+ setNumber_of_function()\l+ setLanguage_programming()\l+ setFunction()\l+ getDynamically()\l+ getName()\l+ getID()\lі ще  8...\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="< Оголошення базового класу C_Library"];
+  Node2 -> Node1 [color="grey25",fontsize="12",style="solid",label=" #function" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node2 [label="{C_Library::C_Function\n||+ setFunction()\l+ What_function_is_in\l_this_library()\l+ C_Function()\l+ C_Function()\l+ C_Function()\l+ ~C_Function()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___library_1_1_c___function.html",tooltip="< Оголошення класу C_Function"];
+  Node3 -> Node2 [color="grey25",fontsize="12",style="solid",label=" -function" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node3 [label="{string\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node4 -> Node1 [color="grey25",fontsize="12",style="solid",label=" #lang" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node4 [label="{C_Language\n||+ setLanguage_programming()\l+ Which_language_programming()\l+ C_Language()\l+ C_Language()\l+ C_Language()\l+ ~C_Language()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___language.html",tooltip="< Оголошення класу C_Language"];
+  Node3 -> Node4 [color="grey25",fontsize="12",style="solid",label=" -language" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 -> Node1 [color="grey25",fontsize="12",style="solid",label=" #year_creating\n#number_of_functions\n#ID" ,arrowhead="odiamond",fontname="Helvetica"];
+  Node5 [label="{int\n||}",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled",tooltip=" "];
+  Node3 -> Node1 [color="grey25",fontsize="12",style="solid",label=" #name\n#dynamically" ,arrowhead="odiamond",fontname="Helvetica"];
+}
