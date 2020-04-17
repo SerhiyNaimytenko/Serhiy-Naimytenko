@@ -1,0 +1,5 @@
+using this library you can create a string data type
+using this library you can display data on the screen
+using this library you can count the root of a number
+using this library you can display the Cyrillic alphabet on the screen
+using this library you can create a regular expression and check the resulting string

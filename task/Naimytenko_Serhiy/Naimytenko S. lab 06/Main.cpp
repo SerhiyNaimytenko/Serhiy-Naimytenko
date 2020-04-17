@@ -9,6 +9,8 @@ bool A_more(int a, int b) { return a > b; }
 bool B_more(int a, int b) { return b > a; }
 
 
+
+
 int Menu();
 
 int main()
