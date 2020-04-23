@@ -21,6 +21,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Naimytenko S. lab 08", "Nai
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Naimytenko S. lab 09", "Naimytenko S. lab 09\Naimytenko S. lab 09.vcxproj", "{8DACDAC8-FAEE-4637-B157-44684022B108}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Naimytenko S. lab 10", "Naimytenko S. lab 10\Naimytenko S. lab 10.vcxproj", "{90708255-12BF-4C56-87C2-AC10052E2AF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -139,6 +141,18 @@ Global
 		{8DACDAC8-FAEE-4637-B157-44684022B108}.Test|x64.Build.0 = Release|x64
 		{8DACDAC8-FAEE-4637-B157-44684022B108}.Test|x86.ActiveCfg = Release|Win32
 		{8DACDAC8-FAEE-4637-B157-44684022B108}.Test|x86.Build.0 = Release|Win32
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Debug|x64.ActiveCfg = Debug|x64
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Debug|x64.Build.0 = Debug|x64
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Debug|x86.ActiveCfg = Debug|Win32
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Debug|x86.Build.0 = Debug|Win32
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Release|x64.ActiveCfg = Release|x64
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Release|x64.Build.0 = Release|x64
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Release|x86.ActiveCfg = Release|Win32
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Release|x86.Build.0 = Release|Win32
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Test|x64.ActiveCfg = Release|x64
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Test|x64.Build.0 = Release|x64
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Test|x86.ActiveCfg = Release|Win32
+		{90708255-12BF-4C56-87C2-AC10052E2AF8}.Test|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -81,9 +81,9 @@ int* Max_value(int** array, int count_s, int* count_str)
 
 int Return_elements(int** array, int count_s, int* count_str, int ind_i, int ind_j)
 {
-	if (ind_i > count_s || ind_i <= 0 || count_str[ind_i] < ind_j || ind_j <= 0)
+	if (ind_i >= count_s || ind_i <= 0 || count_str[ind_i] <= ind_j || ind_j <= 0)
 		throw "Ошибка введения индексов";
-	int return_el;
+	int return_el = 0;
 
 	cout << "Происходит поиск нужного елемента масива" << endl;
 

@@ -1,5 +1,4 @@
 #pragma once
-#include "C_Library.h"
 /**
  * @file C_List.h
  * Оголошення класу C_List
@@ -7,6 +6,8 @@
  * @version 1.0
  * @date 2020.04.05
  */
+
+#include "C_Library.h"
 
 class C_List /**< Оголошення класу списку*/
 {

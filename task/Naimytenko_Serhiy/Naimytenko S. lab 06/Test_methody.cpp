@@ -2,15 +2,6 @@
 #include "C_List.h"
 #include "Test.h"
 
-/**
- * Функція Sort
- *
- * Короткий опис дій:
- * <ul>
- * <li> </li>
- * </ul>
- * @return пуста функція типу void
- */
 bool Test_Add(C_List& list)
 {
 	C_Library new_lib;
@@ -24,15 +15,6 @@ bool Test_Add(C_List& list)
 	else
 		return false;
 }
-/**
- * Функція Sort
- *
- * Короткий опис дій:
- * <ul>
- * <li> </li>
- * </ul>
- * @return пуста функція типу void
- */
 bool Test_Delete(C_List& list)
 {
 	int size = list.getSize_array();
@@ -47,15 +29,6 @@ bool Test_Delete(C_List& list)
 		return false;
 
 }
-/**
- * Функція Sort
- *
- * Короткий опис дій:
- * <ul>
- * <li> </li>
- * </ul>
- * @return пуста функція типу void
- */
 bool Test_Index_return(C_List& list)
 {
 
@@ -103,15 +76,6 @@ bool Test_Index_return(C_List& list)
 		return false;
 
 }
-/**
- * Функція Sort
- *
- * Короткий опис дій:
- * <ul>
- * <li> </li>
- * </ul>
- * @return пуста функція типу void
- */
 bool Test_Difference(C_List& list)
 {
 	string dynamically = "yes";
