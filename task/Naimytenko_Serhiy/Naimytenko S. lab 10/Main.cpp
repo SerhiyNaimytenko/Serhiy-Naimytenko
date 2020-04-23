@@ -24,7 +24,7 @@ int main()
 		try 
 		{
 			cin >> value;
-			index = obj.Check_index(array, value);
+			index = obj.Check_index(array, value); 
 			cout << "Индех елемента который вы хотели узнать " << index << endl;
 			flag = false;
 		}

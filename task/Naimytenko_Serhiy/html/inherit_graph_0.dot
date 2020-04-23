@@ -1,8 +1,0 @@
-digraph "Графічна ієрархія класів"
-{
- // LATEX_PDF_SIZE
-  edge [fontname="Helvetica",fontsize="12",labelfontname="Helvetica",labelfontsize="12"];
-  node [fontname="Helvetica",fontsize="12",shape=record];
-  rankdir="LR";
-  Node0 [label="C_Language",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$class_c___language.html",tooltip="< Оголошення класу C_Language"];
-}
