@@ -32,6 +32,10 @@ public:
     int Write_file(string);/**< Оголошення методу зчитування в файл*/
     void Check();/**< Оголошення методу виведення на екран обьектів в ім'ї яких 2 слова*/
     Capabilities operator[] (int);
+    
+    friend ostream& operator<< (ostream&, const Capabilities&);
+    friend ofstream& operator<< (ofstream&, const Capabilities);
+    friend istream& operator>> (istream&, Capabilities);
 
     ~C_List();/**< Оголошення деструктора*/
 };

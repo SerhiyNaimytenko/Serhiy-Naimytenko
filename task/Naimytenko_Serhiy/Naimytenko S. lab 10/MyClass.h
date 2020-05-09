@@ -1,35 +1,37 @@
-#pragma once
+#pragma once 
 #define CRTDBG_MAP_ALLOC
 #include <crtdbg.h>
 #define DEBUG_NEW new(_NORMAL_BLOCK, FILE, __LINE)
 #include <iostream>
-#include <clocale>
-#include <ctime>
-#include <iomanip> 
-const int SIZE = 5;
-
-using std::cin;
-using std::cout;
+#include <string>
+#include <iomanip>
+#include <sstream>
+using std::ostream;
+using std::istream;
 using std::string;
+using std::cout;
+using std::cin;
 using std::endl;
 using std::setw;
 using std::exception;
-
-typedef bool (func)(int, int);
-
-bool A_more(int a, int b) { return a > b; }
-bool B_more(int a, int b) { return b > a; }
+using std::istringstream;
+using std::stringstream;
+#define SIZE   5
+ 
+template <typename T1>
+bool A_more(T1 a, T1 b) { return a > b; }
+template <typename T1>
+bool B_more(T1 a, T1 b) { return b > a; }
 
 class MyClass
 {
 private:
 
 public:
-#include"MyClass.h"
 
-	int* Create_arr()
+	float* Create_arr()
 	{
-		int* array = new int[SIZE];
+		float* array = new float[SIZE];
 		cout << "Заполните масив данными. Пожалуйста, не повторяйтесь." << endl;
 		for (int i = 0; i < SIZE; i++)
 		{
@@ -42,7 +44,7 @@ public:
 		{
 			pr = 0;
 
-			for (int i = 1; i < SIZE; i++) 
+			for (int i = 1; i < SIZE; i++)
 			{
 				if (array[j] == array[i])
 				{
@@ -66,8 +68,8 @@ public:
 		}
 		cout << endl;
 	}
-	template <typename T1, typename T2 >
-	int Check_index(T1 array, T2 value)
+	template <typename T1>
+	int Check_index(T1* array, T1 value)
 	{
 		int index = SIZE + 1;
 		for (int i = 0; i < SIZE; i++)
@@ -83,17 +85,25 @@ public:
 		return index;
 	}
 	template <typename T1 >
-	T1 Sort(T1 array, func condition)
+	T1 Sort(T1 array, int choice)
 	{
 		auto temp = array[0];
-
+		bool sort = false;
 		cout << "Проиходит сортировка масива" << endl;
-	
+
 		for (size_t i = 0; i < SIZE; i++) /**< проганяємо весь масив за допомогою циклу*/
 		{
 			for (size_t j = 0; j < SIZE; j++)
 			{
-				if (condition(array[i],array[j])) /**< перевіряємо відповідність елементів, якщо вона вірна то міняємо елементі місцями*/
+				if (choice == 1)
+				{
+					sort = A_more(array[i], array[j]);
+				}
+				else if (choice == 2)
+				{
+					sort = B_more(array[i], array[j]);
+				}
+				if (sort) /**< перевіряємо відповідність елементів, якщо вона вірна то міняємо елементі місцями*/
 				{
 					temp = array[i];
 					array[i] = array[j];
@@ -101,7 +111,7 @@ public:
 				}
 			}
 		}
-	
+
 		return array;
 	}
 	template <typename T1, typename T2>

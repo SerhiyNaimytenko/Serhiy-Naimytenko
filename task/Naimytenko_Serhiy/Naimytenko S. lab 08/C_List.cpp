@@ -502,6 +502,31 @@ Capabilities C_List::operator[] (int i)
         return list[i];
 }
 
+ostream&  operator<< (ostream& output, const Capabilities& obj)
+{
+    C_List o;
+    stringstream temp;
+    temp = o.Str_return(obj);
+    output << temp.str();
+    return output;
+}
+
+
+ofstream&  operator<< (ofstream& output, const Capabilities  obj)
+{
+    C_List o;
+    stringstream temp;
+    temp = o.Str_return(obj);
+        output << temp.str();
+    return output;
+}
+
+istream&  operator>> (istream& input, Capabilities& obj)
+{
+    obj.input(input);
+    return input;
+} 
+
 C_List:: ~C_List()/**< Ğåàë³çàö³ÿ äåñòğóêòîğà */
 {
     delete[] list;

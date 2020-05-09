@@ -47,7 +47,7 @@ int main()
 
     int res = Interface();
     if (res == 0)
-        return 0;
+        return 1;
     if (_CrtDumpMemoryLeaks())
         cout << endl << "Есть утечка памяти" << endl;
     else

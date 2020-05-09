@@ -1,0 +1,11 @@
+№    id библиотеки  Кол-во функций   Год её создания  Динмически ли она подключена Название библиотеки Одна из функций этой библиотеки Язык програмирования Расширение файла библиоткеки
+1-          1           30                 2001                 Yes                    C- String_                   String_                max_size
+using this library you can create a string data type
+2-         20           40                 1999                 Yes                     Iostream;                       cin                     C++
+using this library you can display data on the screen
+3-         41           60                 1999                  No                      Math. H.                        H.                    asin
+using this library you can count the root of a number
+4-         51           15                 1998                  No                   Locale_-_ H                         H           decimal_point
+using this library you can display the Cyrillic alphabet on the screen
+5-          3           20                 1999                 Yes                   Regex_ H-_-                      H-_-             regex_match
+using this library you can create a regular expression and check the resulting string
