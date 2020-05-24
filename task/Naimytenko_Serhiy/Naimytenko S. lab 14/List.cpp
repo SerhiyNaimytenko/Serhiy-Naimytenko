@@ -1,25 +1,39 @@
-
 #include "Conteiner.h" 
-map<int, Capabilities>  Read_file(string file_name, string file_name2, int size); 
-map<int, Capabilities> Distribution(string line, string line2, int i, map<int, Capabilities>);
-map<int, Capabilities>  Add(map<int, Capabilities>);
-map<int, Capabilities>  Delete(map<int, Capabilities>);
-Capabilities Index_return(const int index, map<int, Capabilities>);  
-void  Output(map<int, Capabilities>); 
-float Difference(map<int, Capabilities>);
-void  Info_about_lib(map<int, Capabilities>);
-int  Write_file(map<int, Capabilities>, string file_name);
-void  Check(map<int, Capabilities>);
-void Criterion(map<int, Capabilities>);
-void Search(map<int, Capabilities>);
 
-int Map()
+
+class Funct
 {
-    map<int, Capabilities>  conteiner;
+private:
+
+public:
+    bool operator()(Capabilities& obj1, Capabilities& obj2)
+    {
+        return obj1 < obj2;
+    }
+};
+
+list<Capabilities>  Read_file(string file_name, string file_name2, int size);
+list<Capabilities> Distribution(string line, string line2, int i, list<Capabilities>);
+list<Capabilities>  Add(list<Capabilities>);
+list<Capabilities>  Delete(list<Capabilities>);
+Capabilities Index_return(const int index, list<Capabilities>);
+void  Output(list<Capabilities>);
+float Difference(list<Capabilities>);
+void  Info_about_lib(list<Capabilities>);
+int  Write_file(list<Capabilities>, string file_name);
+void  Check(list<Capabilities>);
+void Criterion(list<Capabilities>);
+void Search(list<Capabilities>);
+
+int List()
+{
+    list<Capabilities>  conteiner;
     string file_read = "file_read.txt";
     string file_read2 = "file_read2.txt";
     string file_write = "file_write.txt";
     int size = Count_line(file_read);
+    if (size == 0)
+        return 404;
     conteiner = Read_file(file_read, file_read2, size);
     if (conteiner.size() == 0)
         return 404;
@@ -27,18 +41,22 @@ int Map()
     conteiner = Add(conteiner);
     Output(conteiner);
     conteiner = Delete(conteiner);
-    Output(conteiner); 
+    Output(conteiner);
     float diff = Difference(conteiner);
     int id;
     cout << "Введите айди элемента которого хотите получить" << endl;
     cin >> id;
     Capabilities res_id = Index_return(id, conteiner);
     Str_return(res_id);
-    Check(conteiner);
     cout << "Вывод объектов в названии которых 2 слова" << endl;
+    Check(conteiner);
     Info_about_lib(conteiner);
     Criterion(conteiner);
     Search(conteiner);
+    Funct funct;
+    cout << "Cортировка" << endl;
+    conteiner.sort(funct);
+    Output(conteiner);
     int res = Write_file(conteiner, file_write);
     if (res == 1)
         return 404;
@@ -46,9 +64,9 @@ int Map()
     return 0;
 }
 
-map<int, Capabilities>  Read_file(string file_name, string file_name2, int size)
+list<Capabilities>  Read_file(string file_name, string file_name2, int size)
 {
-    map<int, Capabilities> cont;
+    list<Capabilities> cont;
     ifstream file(file_name);  /**< відкриття файлу*/
     if (!file)  /**< перевірка чи відкрився файл*/
     {
@@ -72,7 +90,7 @@ map<int, Capabilities>  Read_file(string file_name, string file_name2, int size)
     file.close();  /**< закриття файлу*/
     return cont;
 }
-map<int, Capabilities>  Distribution(string line, string line2, int i, map<int, Capabilities> cont)
+list<Capabilities>  Distribution(string line, string line2, int i, list<Capabilities> cont)
 {
     regex regular("[\\d]* [\\d]* [\\d]* (Yes|No) [A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*[ ]?([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*)? [\\w][_]?([\\w]*)? C[\+]{0,} [.][\\w]*"); /**< основний регулярний вираз*/
     regex replace_reg1("([;]{2,})"); /**< оголошення регулярних виразів що допоможуть уникнути повторення деяких символів*/
@@ -122,7 +140,7 @@ map<int, Capabilities>  Distribution(string line, string line2, int i, map<int, 
             obj_e.setYear_Creating(year_creating);
             obj_e.setExpansion_file(name_l);
 
-            cont.emplace(i, Capabilities(line2, dynamically, name, id, year_creating, number_of_function, name2, name_f, obj_e));
+            cont.push_back(Capabilities(line2, dynamically, name, id, year_creating, number_of_function, name2, name_f, obj_e));
         }
         else /**< якщо ім'я данної бібліотеки складається з двух слів то відповідність ззмінних та інформації зберігається */
         {
@@ -136,21 +154,23 @@ map<int, Capabilities>  Distribution(string line, string line2, int i, map<int, 
             obj_e.setYear_Creating(year_creating);
             obj_e.setExpansion_file(expansion);
 
-            cont.emplace(i, Capabilities(line2, dynamically, name, id, year_creating, number_of_function, name2, name_f, obj_e));
+            cont.push_back(Capabilities(line2, dynamically, name, id, year_creating, number_of_function, name2, name_f, obj_e));
         }
     }
     return cont;
 }
-map<int, Capabilities>  Add(map<int, Capabilities> cont)
+list<Capabilities> Add(list<Capabilities> cont)
 {
     int index_el;
     cout << "Введите порядковый индекс елемента которого хотите удалить" << endl;
     cin >> index_el;
+    auto it = cont.begin();
+    advance(it, index_el - 1);
     Capabilities add_el;
-    cont.emplace(index_el, add_el);
+    cont.insert(it, add_el);
     return cont;
 }
-map<int, Capabilities>  Delete(map<int, Capabilities> cont)
+list<Capabilities>  Delete(list<Capabilities> cont)
 {
     auto it = cont.begin();
     int index_el;
@@ -160,40 +180,37 @@ map<int, Capabilities>  Delete(map<int, Capabilities> cont)
     cont.erase(it);
     return cont;
 }
-Capabilities Index_return(const int index, map<int, Capabilities> cont)
+Capabilities Index_return(const int index, list<Capabilities> cont)
 {
     int id;
     Capabilities value;
     for (auto var : cont)
     {
-        id = var.second.getID(); /**< дізнаємося ідентифікатор кожного елементу*/
+        id = var.getID(); /**< дізнаємося ідентифікатор кожного елементу*/
         if (id == index)/**< порівнюємо значення*/
         {
-            value = var.second;
+            value = var;
         }
     }
     return value;
 }
-void  Output(map<int, Capabilities> cont)
+
+void  Output(list<Capabilities> cont)
 {
     stringstream str;
     int i = 0;
     cout << "Вивод на экран всех объектов" << endl;
     cout << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(20) << "Название библиотеки" << setw(32) << "Одна из функций этой библиотеки" << setw(21) << "Язык програмирования" << setw(29) << "Расширение файла библиоткеки" << endl;
-    for_each(cont.begin(), cont.end(), [](pair<int, Capabilities> obj)
-        {
-            stringstream str;
-            str << " " << obj.second.getID() << " " << obj.second.getNumber_of_function() << " " << obj.second.getYear_Creating() << " " << obj.second.getDynamically() << " " << obj.second.getName() << " " << obj.second.getFunction() << " " << obj.second.getLanguage_programming() << " " << obj.second.getExpansion_file();
-            Str_output(str);
-        });
-} 
-float Difference(map<int, Capabilities> cont)
+    for_each(cont.begin(), cont.end(), Str_return);
+
+}
+float Difference(list<Capabilities> cont)
 {
     float count = 0;
     string y;
     for (auto var : cont)
     {
-        y = var.second.getDynamically();
+        y = var.getDynamically();
         if (y == "yes") /**< перевірка чи динамічно підлючається бібліотека, якщо так збільшуємо значення змінної*/
             count++;
     }
@@ -201,19 +218,19 @@ float Difference(map<int, Capabilities> cont)
     cout << "В " << setw(5) << dif << " раз количество библиотек, которые динамически подключаются, меньше чем общее количество библиотек" << endl;/**< повідомляємо відмінність виводячи інформацію на екран*/
     return dif;
 }
-void  Info_about_lib(map<int, Capabilities> cont)
+void  Info_about_lib(list<Capabilities> cont)
 {
     for (auto var : cont)
     {
         cout << endl << "В языке програмирования \"";
-        cout << var.second.getLanguage_programming();
-        cout << "\" используется библиотека " << var.second.getName() << endl;
+        cout << var.getLanguage_programming();
+        cout << "\" используется библиотека " << var.getName() << endl;
         cout << "В данной библиотеке есть такая функция" << endl;
-        cout << "Функция - " << var.second.getFunction() << endl;
-        cout << "Возможности данной библиотеки" << endl << var.second.getCapabilities() << endl;
+        cout << "Функция - " << var.getFunction() << endl;
+        cout << "Возможности данной библиотеки" << endl << var.getCapabilities() << endl;
     }
 }
-int  Write_file(map<int, Capabilities> cont, string file_name)
+int  Write_file(list<Capabilities> cont, string file_name)
 {
     ofstream file(file_name); /**< відкриття файлу*/
     if (!file) /**< перевірка чи відкрився файл*/
@@ -225,13 +242,13 @@ int  Write_file(map<int, Capabilities> cont, string file_name)
     file << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(20) << "Название библиотеки" << setw(32) << "Одна из функций этой библиотеки" << setw(21) << "Язык програмирования" << setw(29) << "Расширение файла библиоткеки" << endl;
     for (auto var : cont)
     {
-        file << i + 1 << "- " << setw(10) << var.second.getID() << setw(13) << var.second.getNumber_of_function() << setw(21) << var.second.getYear_Creating() << setw(20) << var.second.getDynamically() << setw(30) << var.second.getName() << setw(26) << var.second.getFunction() << setw(24) << var.second.getLanguage_programming() << setw(20) << endl << var.second.getCapabilities() << endl;
+        file << i + 1 << "- " << setw(10) << var.getID() << setw(13) << var.getNumber_of_function() << setw(21) << var.getYear_Creating() << setw(20) << var.getDynamically() << setw(30) << var.getName() << setw(26) << var.getFunction() << setw(24) << var.getLanguage_programming() << setw(20) << endl << var.getCapabilities() << endl;
         i++;
     }
     file.close(); /**< закриття файлу*/
     return 0;
 }
-void  Check(map<int, Capabilities> cont)
+void  Check(list<Capabilities> cont)
 {
     regex regular("(([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*)+( )+([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*))");  /**< створення регулярного виразу для визначення назви з двома словами*/
     string check;
@@ -239,22 +256,19 @@ void  Check(map<int, Capabilities> cont)
     int k = 0;
     for (auto var : cont)
     {
-        auto check_res = var.second.getName();
+        auto check_res = var.getName();
         if (regex_match(check_res, regular))  /**< преревіряємо чи містить назва 2 слова*/
         {
-            Str_return(var.second);
-            
-            k++;
+            Str_return(var);
         }
     }
 }
 
-
-void Criterion(map<int, Capabilities> cont)
+void Criterion(list<Capabilities> cont)
 {
     int command, count;
     bool flag = true;
-    cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << "404 - завершение поиска количества по критериям" << endl;
+    cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl << "404 - завершение поиска количества по критериям" << endl;
     cin >> command;
     while (flag)
     {
@@ -266,7 +280,7 @@ void Criterion(map<int, Capabilities> cont)
             regex regular("(([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*)+( )+([A-ZА-Я]+[\\wА-Яа-я\-|_|:|;|\.]*))");
             for (auto var : cont)
             {
-                auto check_res = var.second.getName();
+                auto check_res = var.getName();
                 if (regex_match(check_res, regular))  /**< преревіряємо чи містить назва 2 слова*/
                 {
                     count++;
@@ -284,7 +298,7 @@ void Criterion(map<int, Capabilities> cont)
             for (auto var : cont)
             {
 
-                if (var.second.getYear_Creating() == year)  /**< преревіряємо чи містить назва 2 слова*/
+                if (var.getYear_Creating() == year)  /**< преревіряємо чи містить назва 2 слова*/
                 {
                     count++;
                 }
@@ -303,7 +317,7 @@ void Criterion(map<int, Capabilities> cont)
                 for (auto var : cont)
                 {
 
-                    if (var.second.getLanguage_programming() == "C")  /**< преревіряємо чи містить назва 2 слова*/
+                    if (var.getLanguage_programming() == "C")  /**< преревіряємо чи містить назва 2 слова*/
                     {
                         count++;
                     }
@@ -315,7 +329,7 @@ void Criterion(map<int, Capabilities> cont)
                 for (auto var : cont)
                 {
 
-                    if (var.second.getLanguage_programming() == "C++")  /**< преревіряємо чи містить назва 2 слова*/
+                    if (var.getLanguage_programming() == "C++")  /**< преревіряємо чи містить назва 2 слова*/
                     {
                         count++;
                     }
@@ -330,7 +344,7 @@ void Criterion(map<int, Capabilities> cont)
 
             for (auto var : cont)
             {
-                if (var.second.getDynamically() == "yes") /**< перевірка чи динамічно підлючається бібліотека, якщо так збільшуємо значення змінної*/
+                if (var.getDynamically() == "yes") /**< перевірка чи динамічно підлючається бібліотека, якщо так збільшуємо значення змінної*/
                     count++;
             }
 
@@ -343,20 +357,23 @@ void Criterion(map<int, Capabilities> cont)
             flag = false;
             break;
         }
-
         default:
         {
             cout << "Вы такого критерия не существует" << endl;
-            cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl;
+            cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl << "404 - завершение поиска количества по критериям" << endl;
             cin >> command;
             break;
         }
         }
-        cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl;
-        cin >> command;
+        if (flag)
+        {
+            cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl << "404 - завершение поиска количества по критериям" << endl;
+            cin >> command;
+        }
+
     }
 }
-void Search(map<int, Capabilities> cont)
+void Search(list<Capabilities> cont)
 {
     int command;
     bool flag = true;
@@ -373,10 +390,10 @@ void Search(map<int, Capabilities> cont)
             cin >> name;
             for (auto var : cont)
             {
-                if (var.second.getName() == name)
+                if (var.getName() == name)
                 {
                     cout << "Вивод объекта которого вы искали" << endl;
-                    Str_return(var.second);
+                    Str_return(var);
                     flag = false;
                     break;
                 }
@@ -390,10 +407,10 @@ void Search(map<int, Capabilities> cont)
             cin >> id;
             for (auto var : cont)
             {
-                if (var.second.getID() == id)
+                if (var.getID() == id)
                 {
                     cout << "Вивод объекта которого вы искали" << endl;
-                    Str_return(var.second);
+                    Str_return(var);
                     flag = false;
                     break;
                 }
@@ -408,10 +425,10 @@ void Search(map<int, Capabilities> cont)
             cin >> exp;
             for (auto var : cont)
             {
-                if (var.second.getExpansion_file() == exp)
+                if (var.getExpansion_file() == exp)
                 {
                     cout << "Вивод объекта которого вы искали" << endl;
-                    Str_return(var.second);
+                    Str_return(var);
                     flag = false;
                     break;
                 }

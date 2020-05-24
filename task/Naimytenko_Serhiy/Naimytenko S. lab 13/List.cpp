@@ -4,8 +4,7 @@ list<Capabilities> Distribution(string line, string line2, int i, list<Capabilit
 list<Capabilities>  Add(list<Capabilities>);
 list<Capabilities>  Delete(list<Capabilities>);
 Capabilities Index_return(const int index, list<Capabilities>);
-void  Output(list<Capabilities>);
-list<Capabilities> Sort(func condition, list<Capabilities>);
+void  Output(list<Capabilities>); 
 float Difference(list<Capabilities>);
 void  Info_about_lib(list<Capabilities>);
 int  Write_file(list<Capabilities>, string file_name);
@@ -29,17 +28,14 @@ int List()
     conteiner = Add(conteiner);
     Output(conteiner);
     conteiner = Delete(conteiner);
-    Output(conteiner);
-    conteiner = Sort(A_more, conteiner);
-    Output(conteiner);
-    conteiner = Sort(B_more, conteiner);
-    Output(conteiner);
+    Output(conteiner); 
     float diff = Difference(conteiner);
     int id;
     cout << "Введите айди элемента которого хотите получить" << endl;
     cin >> id;
     Capabilities res_id = Index_return(id, conteiner); 
     Str_return(res_id);
+    cout << "Вывод объектов в названии которых 2 слова" << endl;
     Check(conteiner);
     Info_about_lib(conteiner);
     Criterion(conteiner);
@@ -190,24 +186,7 @@ void  Output(list<Capabilities> cont)
     cout << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(20) << "Название библиотеки" << setw(32) << "Одна из функций этой библиотеки" << setw(21) << "Язык програмирования" << setw(29) << "Расширение файла библиоткеки" << endl;
     for_each(cont.begin(), cont.end(), Str_return);
 
-}
-list<Capabilities> Sort(func condition, list<Capabilities> cont)
-{
-    Capabilities temp;  /**< створення тимчасової змінної*/
-    for (auto var : cont)
-    {
-        for (auto var1 : cont)
-        {
-            if (condition(var.getID(), var1.getID())) /**< перевіряємо відповідність елементів, якщо вона вірна то міняємо елементі місцями*/
-            {
-                temp = var;
-                var = var1;
-                var1 = temp;
-            }
-        }
-    }
-    return cont;
-}
+} 
 float Difference(list<Capabilities> cont)
 {
     float count = 0;
@@ -272,12 +251,12 @@ void Criterion(list<Capabilities> cont)
 {
     int command, count;
     bool flag = true;
-    cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" <<"404 - завершение поиска количества по критериям"<< endl;
+    cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << "404 - завершение поиска количества по критериям" << endl;
     cin >> command;
     while (flag)
     {
         count = 0;
-        switch(command)
+        switch (command)
         {
         case 1:
         {
@@ -290,28 +269,28 @@ void Criterion(list<Capabilities> cont)
                     count++;
                 }
             }
-            cout << "Количество бииблиотек, в названии которых 2 слова - " <<count<< endl;
-                break;
+            cout << "Количество бииблиотек, в названии которых 2 слова - " << count << endl;
+            break;
         }
         case 2:
         {
-             
+
             int year;
-            cout << "" << endl;
+            cout << "Введите год создания" << endl;
             cin >> year;
             for (auto var : cont)
             {
-                 
-                if ( var.getYear_Creating()==year)  /**< преревіряємо чи містить назва 2 слова*/
+
+                if (var.getYear_Creating() == year)  /**< преревіряємо чи містить назва 2 слова*/
                 {
                     count++;
                 }
             }
-            
-            cout << "Количество библиотеки" <<year<<" года создания - "<< count << endl;
+
+            cout << "Количество библиотеки" << year << " года создания - " << count << endl;
             break;
 
-        } 
+        }
         case 3:
         {
             cout << "1 - язык С, 2 - С++" << endl;
@@ -339,7 +318,7 @@ void Criterion(list<Capabilities> cont)
                     }
                 }
                 cout << "Количество библиотек, основаных на языке програмирования С++ - " << count << endl;
-            } 
+            }
             break;
 
         }
@@ -347,25 +326,30 @@ void Criterion(list<Capabilities> cont)
         {
 
             for (auto var : cont)
-            { 
+            {
                 if (var.getDynamically() == "yes") /**< перевірка чи динамічно підлючається бібліотека, якщо так збільшуємо значення змінної*/
                     count++;
             }
 
-            cout << "Количество динамически подключаемых библиотек - " << count << endl; 
+            cout << "Количество динамически подключаемых библиотек - " << count << endl;
             break;
 
-        } 
+        }
         case 404:
+        {
             flag = false;
+            break;
+        }
         default:
         {
             cout << "Вы такого критерия не существует" << endl;
             cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl;
-            cin >> command; 
+            cin >> command;
             break;
-        } 
         }
+        }
+        cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl;
+        cin >> command;
     }
 }
 void Search(list<Capabilities> cont)

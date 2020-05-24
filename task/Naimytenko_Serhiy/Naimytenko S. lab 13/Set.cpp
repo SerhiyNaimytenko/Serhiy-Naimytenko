@@ -5,8 +5,7 @@ set<Capabilities> Distribution(string line, string line2, int i, set<Capabilitie
 set<Capabilities> Add(set<Capabilities>);
 set<Capabilities> Delete(set<Capabilities>);
 Capabilities Index_return(const int index, set<Capabilities>);
-void  Output(set<Capabilities>);
-set<Capabilities> Sort(func condition, set<Capabilities>);
+void  Output(set<Capabilities>); 
 float Difference(set<Capabilities>);
 void  Info_about_lib(set<Capabilities>);
 int  Write_file(set<Capabilities>, string file_name);
@@ -28,17 +27,14 @@ int Set()
     conteiner = Add(conteiner);
     Output(conteiner);
     conteiner = Delete(conteiner);
-    Output(conteiner);
-    conteiner = Sort(A_more, conteiner);
-    Output(conteiner);
-    conteiner = Sort(B_more, conteiner);
-    Output(conteiner);
+    Output(conteiner); 
     float diff = Difference(conteiner);
     int id;
     cout << "Введите айди элемента которого хотите получить" << endl;
     cin >> id;
     Capabilities res_id = Index_return(id, conteiner);
     Str_return(res_id);
+    cout << "Вывод объектов в названии которых 2 слова" << endl;
     Check(conteiner);
     Info_about_lib(conteiner);
     Criterion(conteiner);
@@ -190,23 +186,7 @@ void  Output(set<Capabilities> cont)
     cout << "№" << setw(17) << "id библиотеки" << setw(16) << "Кол-во функций" << setw(18) << "Год её создания" << setw(30) << "Динмически ли она подключена" << setw(20) << "Название библиотеки" << setw(32) << "Одна из функций этой библиотеки" << setw(21) << "Язык програмирования" << setw(29) << "Расширение файла библиоткеки" << endl;
     for_each(cont.begin(), cont.end(), Str_return);
 }
-set<Capabilities> Sort(func condition, set<Capabilities> cont)
-{
-    Capabilities temp;  /**< створення тимчасової змінної*/
-    for (auto var : cont)
-    {
-        for (auto var1 : cont)
-        {
-            if (condition(var.getID(), var1.getID())) /**< перевіряємо відповідність елементів, якщо вона вірна то міняємо елементі місцями*/
-            {
-                temp = var;
-                var = var1;
-                var1 = temp;
-            }
-        }
-    }
-    return cont;
-}
+ 
 float Difference(set<Capabilities> cont)
 {
     float count = 0;
@@ -296,7 +276,7 @@ void Criterion(set<Capabilities> cont)
         {
 
             int year;
-            cout << "" << endl;
+            cout << "Введите год создания" << endl;
             cin >> year;
             for (auto var : cont)
             {
@@ -356,7 +336,10 @@ void Criterion(set<Capabilities> cont)
 
         }
         case 404:
+        {
             flag = false;
+            break;
+        }
         default:
         {
             cout << "Вы такого критерия не существует" << endl;
@@ -365,6 +348,8 @@ void Criterion(set<Capabilities> cont)
             break;
         }
         }
+        cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl;
+        cin >> command;
     }
 }
 void Search(set<Capabilities> cont)
@@ -438,5 +423,7 @@ void Search(set<Capabilities> cont)
             break;
         }
         }
+        cout << "Введите номер критерия по которому хотите узнать количество элементов" << endl << "1 - Имя библиотеки состоит из 2х слов" << endl << "2 - Год создания" << endl << "3 - Язык програмирования" << endl << "4 - Количество динамически подключаемых библиотек" << endl;
+        cin >> command;
     }
 }
